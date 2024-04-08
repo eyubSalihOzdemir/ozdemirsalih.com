@@ -9,16 +9,18 @@ import { IconMoon } from "@tabler/icons-react";
 
 function Navbar() {
   return (
-    <div className="h-16 flex justify-between items-center mx-auto px-4 border-b-[1px] border-[#d1d1d160]">
+    <div className="mx-auto flex h-16 items-center justify-between border-b-[1px] border-[#d1d1d160] px-4">
       <button>
-        <div className="flex gap-1">
-          <IconMenu2></IconMenu2>
-          <h1>Menu</h1>
+        <div className="flex items-center gap-1">
+          <IconMenu2 className="size-5 lg:size-6"></IconMenu2>
+          <h1 className="text-sm sm:text-base">Menu</h1>
         </div>
       </button>
-      <h1 className="font-bold text-2xl">E. Salih Özdemir</h1>
+      <h1 className="text-base font-bold sm:text-lg md:text-xl lg:text-2xl">
+        E. Salih Özdemir
+      </h1>
       <button>
-        <IconMoon></IconMoon>
+        <IconMoon className="size-5 lg:size-6"></IconMoon>
       </button>
     </div>
   );

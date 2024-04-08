@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Body from "./components/Body";
+import Home from "./views/Home";
 
 function App() {
   //const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div>
       <Navbar />
-      <Body />
-    </>
+      <Home />
+    </div>
   );
 }
 

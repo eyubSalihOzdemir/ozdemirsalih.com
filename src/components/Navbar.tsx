@@ -13,10 +13,10 @@ function Navbar() {
         <button>
           <div className="flex items-center gap-1">
             <IconMenu2 className="size-5 lg:size-6"></IconMenu2>
-            <h1 className="text-sm sm:text-base">Menu</h1>
+            <h1 className="text-sm font-medium sm:text-base">Menu</h1>
           </div>
         </button>
-        <h1 className="text-base font-bold sm:text-lg md:text-xl lg:text-2xl">
+        <h1 className="text-base font-semibold sm:text-lg md:text-xl lg:text-2xl">
           E. Salih Özdemir
         </h1>
         <button>

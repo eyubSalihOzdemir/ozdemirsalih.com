@@ -1,6 +1,7 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
+import NotFound from "./views/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>you idiot</div>,
+    element: <NotFound />,
   },
 ]);
 

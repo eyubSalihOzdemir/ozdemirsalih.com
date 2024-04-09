@@ -7,11 +7,11 @@ function Home() {
 
   return (
     <div className="flex h-[calc(100vh-64px)] flex-col overflow-auto">
-      <div className="flex justify-center">
+      <div className="mt-12 flex justify-center">
         <img
           src={isDarkMode ? iRobotLogoWhite : iRobotLogo}
-          alt="SVG Logo Image"
-          className="size-48 fill-lime-500"
+          alt="logo image"
+          className="size-48"
         ></img>
       </div>
       <div className="flex grow items-center justify-center font-medium">

@@ -6,7 +6,7 @@ function Home() {
   const { isDarkMode } = useStateContext();
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-[calc(100vh-64px)] flex-col overflow-auto">
       <div className="flex justify-center">
         <img
           src={isDarkMode ? iRobotLogoWhite : iRobotLogo}
@@ -14,7 +14,7 @@ function Home() {
           className="size-48 fill-lime-500"
         ></img>
       </div>
-      <div className="lex-col flex grow items-center justify-center font-medium">
+      <div className="flex grow items-center justify-center font-medium">
         Currently under development...
       </div>
     </div>

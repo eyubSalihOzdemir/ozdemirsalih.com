@@ -4,6 +4,7 @@ import { IconSun } from "@tabler/icons-react";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
+import Sidebar from "./Sidebar.tsx";
 
 function Navbar() {
   const checkTheme = () => {
@@ -32,26 +33,34 @@ function Navbar() {
     }
   };
 
-  // const [isDarkMode, setIsDarkMode] = useState(() => checkTheme());
   const { isDarkMode, setIsDarkMode } = useStateContext();
+  const { isSideBar, setIsSideBar } = useStateContext();
+
+  const handleSidebar = () => {
+    setIsSideBar(!isSideBar);
+  };
 
   setIsDarkMode(checkTheme());
 
   return (
-    <div className="dark:bg-dark-background dark:text-dark-text transition-all duration-300">
+    <div className="transition-all duration-300 dark:bg-dark-background dark:text-dark-text">
+      <Sidebar />
       <div className="mx-auto flex h-16 items-center justify-between border-b-[1px] border-[#d1d1d160] px-2">
-        <button className="dark:hover:hover:text-accent hover:bg-secondary dark:hover:bg-dark-secondary rounded-sm px-2 pb-2 pt-2 font-light hover:font-medium hover:transition-all hover:duration-300">
+        <button
+          className="rounded-sm px-2 pb-2 pt-2 font-light hover:bg-secondary hover:font-medium hover:transition-all dark:hover:bg-dark-secondary dark:hover:hover:text-accent"
+          onClick={handleSidebar}
+        >
           <div className="flex items-center gap-1">
             <IconMenu2 className="size-5 lg:size-6"></IconMenu2>
-            <h1 className="text-sm sm:text-base">Menu</h1>
+            <h1 className="text-sm transition-all sm:text-base">Menu</h1>
           </div>
         </button>
-        <h1 className="text-base font-medium sm:text-lg md:text-xl lg:text-2xl">
+        <h1 className="text-base font-medium transition-all sm:text-lg md:text-xl lg:text-2xl">
           E. Salih Özdemir
         </h1>
         <button
           onClick={themeSwitch}
-          className="dark:hover:hover:text-accent hover:bg-secondary dark:hover:bg-dark-secondary rounded-sm px-4 pb-2 pt-2 font-light hover:font-medium hover:transition-all hover:duration-300"
+          className="rounded-sm px-4 pb-2 pt-2 font-light hover:bg-secondary hover:font-medium hover:transition-all dark:hover:bg-dark-secondary dark:hover:hover:text-accent"
         >
           {isDarkMode ? (
             <IconSun className="size-5 lg:size-6"></IconSun>

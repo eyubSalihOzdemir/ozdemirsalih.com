@@ -43,9 +43,9 @@ function Navbar() {
   setIsDarkMode(checkTheme());
 
   return (
-    <div className="transition-all duration-300 dark:bg-dark-background dark:text-dark-text">
+    <div className="bg-background transition-all duration-300 dark:bg-dark-background dark:text-dark-text ">
       <Sidebar />
-      <div className="mx-auto flex h-16 items-center justify-between border-b-[1px] border-[#d1d1d160] px-2">
+      <div className="border-divider mx-auto flex h-16 items-center justify-between border-b-[1px] px-2">
         <button
           className="rounded-sm px-2 pb-2 pt-2 font-light hover:bg-secondary hover:font-medium hover:transition-all dark:hover:bg-dark-secondary dark:hover:hover:text-accent"
           onClick={handleSidebar}

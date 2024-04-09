@@ -9,7 +9,9 @@ export default {
       },
       colors: {
         accent: "#f26e59",
-        secondary: "#DFE1E1",
+        secondary: "#B2B2B268",
+        background: "#EDEDED",
+        divider: "#d1d1d1",
         dark: {
           background: "#191919",
           secondary: "#262626",

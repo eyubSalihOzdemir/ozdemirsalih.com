@@ -10,7 +10,7 @@ function NotFound() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-between px-6 py-10">
+    <div className="bg-background flex h-screen flex-col items-center justify-between px-6 py-10">
       <div className="col-span-3 flex w-full items-center">
         <div className="mx-4 h-min w-full border-[1px]"></div>
         <div className="mx-auto flex flex-col items-center justify-center text-center">
@@ -29,7 +29,7 @@ function NotFound() {
           Home
         </button>
       </div>
-      <img src={alien} className="animate-bounce-slow h-40  md:h-44" />
+      <img src={alien} className="h-40 animate-bounce-slow  md:h-44" />
     </div>
   );
 }

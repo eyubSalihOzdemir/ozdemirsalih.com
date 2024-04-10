@@ -4,6 +4,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      borderRadius: {
+        button: "8px",
+      },
       animation: {
         "bounce-slow": "bounce 4s ease-in-out infinite",
       },

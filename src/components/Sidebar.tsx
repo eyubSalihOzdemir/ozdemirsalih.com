@@ -1,4 +1,3 @@
-import React from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import { IconHome2 } from "@tabler/icons-react";
 import { IconWriting } from "@tabler/icons-react";
@@ -6,9 +5,12 @@ import { IconCamera } from "@tabler/icons-react";
 import { IconVideo } from "@tabler/icons-react";
 import { IconSailboat } from "@tabler/icons-react";
 import { IconBookmarks } from "@tabler/icons-react";
+import SidebarButton from "./SidebarButton.tsx";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const { isSideBar, setIsSideBar } = useStateContext();
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -30,34 +32,55 @@ function Sidebar() {
         }
       >
         <div className="divide-divider h-full flex-col divide-y-2 bg-opacity-50 p-2">
-          <button className="mb-4 flex h-12 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-            <IconHome2 />
-            <h1>Home</h1>
-          </button>
+          <SidebarButton
+            icon={<IconHome2 />}
+            onClick={() => {
+              navigate("/");
+              setIsSideBar(false);
+            }}
+            text="Home"
+            isBig={true}
+          />
           <div className="py-4">
             <h1 className="start flex h-10 items-end pb-1 pl-2 text-xl font-semibold">
               Blog
             </h1>
-            <button className="flex h-10 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-              <IconWriting className="size-5" />
-              Writings
-            </button>
-            <button className="flex h-10 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-              <IconSailboat className="size-5" />
-              Life Updates
-            </button>
-            <button className="flex h-10 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-              <IconCamera className="size-5" />
-              Photographs
-            </button>
-            <button className="flex h-10 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-              <IconVideo className="size-5" />
-              Videos
-            </button>
-            <button className="flex h-10 w-full items-center justify-start gap-2 rounded-lg p-2 hover:bg-secondary dark:hover:bg-dark-secondary">
-              <IconBookmarks className="size-5" />
-              Bookmarks
-            </button>
+            <SidebarButton
+              icon={<IconWriting />}
+              onClick={() => {
+                navigate("/articles");
+                setIsSideBar(false);
+              }}
+              text="Writings"
+            />
+            <SidebarButton
+              icon={<IconSailboat />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Life Updates"
+            />
+            <SidebarButton
+              icon={<IconCamera />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Photographs"
+            />
+            <SidebarButton
+              icon={<IconVideo />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Videos"
+            />
+            <SidebarButton
+              icon={<IconBookmarks />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Bookmarks"
+            />
           </div>
         </div>
       </div>

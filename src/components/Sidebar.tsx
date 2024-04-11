@@ -52,6 +52,7 @@ function Sidebar() {
                 setIsSideBar(false);
               }}
               text="Articles"
+              underDevelopment={true}
             />
             <SidebarButton
               icon={<IconSailboat />}

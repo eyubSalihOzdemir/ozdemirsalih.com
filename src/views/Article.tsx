@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -23,6 +23,11 @@ function Article() {
 
   const getArticle = () => {
     setIsLoading(true);
+
+    // delete later, testing the depoloyment
+    if (isLoading) {
+    }
+
     axios
       .get(`http://127.0.0.1:8000/api/v1/articles/${id}`)
       .then(({ data }) => {

@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import { ReactNode } from "react";
-import { IconMenu2 } from "@tabler/icons-react";
+// import { IconMenu2 } from "@tabler/icons-react";
 
 // takes a function for the button
 // takes an icon

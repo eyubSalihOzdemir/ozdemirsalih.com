@@ -5,20 +5,29 @@ interface Props {
   onClick: () => void;
   text: string;
   isBig?: boolean;
+  underDevelopment?: boolean;
 }
 
-function SidebarButton({ icon, onClick, text, isBig = false }: Props) {
+function SidebarButton({
+  icon,
+  onClick,
+  text,
+  isBig = false,
+  underDevelopment = false,
+}: Props) {
   const handleButtonClick = () => {
     onClick();
   };
 
   return (
     <button
-      className={`${isBig && "mb-4"} flex h-${isBig ? "12" : "10"} rounded-button w-full items-center justify-start gap-2 p-2 hover:bg-secondary dark:hover:bg-dark-secondary`}
+      className={`${isBig && "mb-4"} flex h-${isBig ? "12" : "10"} w-full items-center justify-start gap-2 rounded-button p-2 hover:bg-secondary dark:hover:bg-dark-secondary ${
+        underDevelopment && "pointer-events-none text-black/30"
+      }`}
       onClick={handleButtonClick}
     >
       <div className={`[&>*]:size-${isBig ? "6" : "5"}`}>{icon}</div>
-      {text}
+      <h1 className="text-start">{text}</h1>
     </button>
   );
 }

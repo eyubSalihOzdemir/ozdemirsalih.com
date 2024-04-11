@@ -41,17 +41,17 @@ function Navbar() {
   const handleSidebar = () => {
     setIsSideBar(!isSideBar);
   };
-
+  // bg-background
   return (
-    <div>
+    <div className="transition-all dark:bg-dark-background dark:text-dark-text">
       <Sidebar />
-      <div className="border-divider mx-auto mb-4 flex h-16 items-center justify-between border-b-[1px] px-2">
+      <div className="mb-4 flex h-16 items-center justify-between border-b-[1px] border-divider px-2">
         <NavbarButton
           icon={<IconMenu2 />}
           onClick={() => handleSidebar()}
           text="Menu"
         />
-        <h1 className="text-base font-medium sm:text-lg md:text-xl lg:text-2xl">
+        <h1 className="text-center text-base font-medium sm:text-lg md:text-xl">
           E. Salih Özdemir
         </h1>
         <NavbarButton

@@ -18,15 +18,12 @@ function NavbarButton({ icon, onClick, text }: Props) {
   };
 
   return (
-    <button
-      className="rounded-button px-2 py-2 hover:bg-secondary hover:transition-all dark:hover:bg-dark-secondary"
-      onClick={handleButtonClick}
-    >
-      <div className="flex items-center gap-1">
+    <div className="flex min-w-20 justify-end" onClick={handleButtonClick}>
+      <button className="flex items-center gap-1 px-2 py-2 hover:bg-secondary hover:transition-all dark:hover:bg-dark-secondary">
         <div className="[&>*]:size-5 [&>*]:lg:size-6">{icon}</div>
         {text && <h1 className="text-sm sm:text-base">{text}</h1>}
-      </div>
-    </button>
+      </button>
+    </div>
   );
 }
 

@@ -27,11 +27,11 @@ function Sidebar() {
       <div
         className={
           isSideBar
-            ? "bg-background fixed left-0 top-0 block h-full w-64 transition-all duration-300 ease-in-out dark:bg-dark-background md:w-72"
-            : "bg-background fixed left-[-16rem] top-0 block h-full w-64 transition-all duration-300 ease-in-out dark:bg-dark-background md:left-[-18rem] md:w-72"
+            ? "fixed left-0 top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:w-72"
+            : "fixed left-[-16rem] top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:left-[-18rem] md:w-72"
         }
       >
-        <div className="divide-divider h-full flex-col divide-y-2 bg-opacity-50 p-2">
+        <div className="h-full flex-col divide-y-2 divide-divider bg-opacity-50 p-2">
           <SidebarButton
             icon={<IconHome2 />}
             onClick={() => {
@@ -51,14 +51,15 @@ function Sidebar() {
                 navigate("/articles");
                 setIsSideBar(false);
               }}
-              text="Writings"
+              text="Articles"
             />
             <SidebarButton
               icon={<IconSailboat />}
               onClick={() => {
-                console.log("Writing clicked");
+                console.log("Article clicked");
               }}
               text="Life Updates"
+              underDevelopment={true}
             />
             <SidebarButton
               icon={<IconCamera />}
@@ -66,6 +67,7 @@ function Sidebar() {
                 console.log("Writing clicked");
               }}
               text="Photographs"
+              underDevelopment={true}
             />
             <SidebarButton
               icon={<IconVideo />}
@@ -73,6 +75,7 @@ function Sidebar() {
                 console.log("Writing clicked");
               }}
               text="Videos"
+              underDevelopment={true}
             />
             <SidebarButton
               icon={<IconBookmarks />}
@@ -80,6 +83,7 @@ function Sidebar() {
                 console.log("Writing clicked");
               }}
               text="Bookmarks"
+              underDevelopment={true}
             />
           </div>
         </div>

@@ -38,7 +38,7 @@ function Articles() {
   }, []);
 
   return (
-    <div className="flex h-[calc(100vh-80px)] flex-col overflow-auto ">
+    <div className="flex h-[calc(100vh-80px)] flex-col overflow-auto">
       {isLoading && (
         <div className="flex h-full w-full flex-col items-center justify-center">
           <h1 className="text-lg">Loading...</h1>

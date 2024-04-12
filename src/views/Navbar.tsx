@@ -23,23 +23,36 @@ function Navbar() {
   };
 
   const themeSwitch = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
+    // if (document.documentElement.classList.contains("dark")) {
+    //   document.documentElement.classList.remove("dark");
+    //   localStorage.setItem("theme", "light");
+    //   setIsDarkMode(false);
+    // } else {
+    //   document.documentElement.classList.add("dark");
+    //   localStorage.setItem("theme", "dark");
+    //   setIsDarkMode(true);
+    // }
+
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    setIsDarkMode(true);
   };
 
   const { isDarkMode, setIsDarkMode } = useStateContext();
   const { isSideBar, setIsSideBar } = useStateContext();
-  setIsDarkMode(checkTheme());
+  const [activeButton, setActiveButton] = useState("home");
+
+  // setIsDarkMode(checkTheme());
+
+  //TODO: remove this when adding light theme support:
+  themeSwitch();
 
   const handleSidebar = () => {
     setIsSideBar(!isSideBar);
+  };
+
+  const handleNavbarButton = (text: string) => {
+    setActiveButton(text);
   };
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -48,57 +61,57 @@ function Navbar() {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  // bg-background
   return (
-    <div className="transition-all dark:bg-dark-background dark:text-dark-text">
-      <Sidebar />
-      <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1080px] items-center justify-between px-6">
+    <div className="bg-[#0F1111] text-white transition-all">
+      {width < breakpoint && <Sidebar />}
+      <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
         {width < breakpoint ? (
           // mobile layout, show menu button and a sidebar
           <div>
             <NavbarButton
               icon={<IconMenu2 />}
-              onClick={() => handleSidebar()}
               text="Menu"
+              onClick={() => handleSidebar()}
+              isSelected={false}
             />
           </div>
         ) : (
           // desktop layout, show full navbar
           <div className="flex gap-6">
-            <NavbarButton text="Home" onClick={() => {}} />
-            <NavbarButton text="Blog" onClick={() => {}} />
-            <NavbarButton text="Dev" onClick={() => {}} />
-            <NavbarButton text="About" onClick={() => {}} />
+            <NavbarButton
+              text="Home"
+              onClick={() => handleNavbarButton("home")}
+              isSelected={activeButton === "home"}
+            />
+            <NavbarButton
+              text="Blog"
+              onClick={() => handleNavbarButton("blog")}
+              isSelected={activeButton === "blog"}
+            />
+            <NavbarButton
+              text="Dev"
+              onClick={() => handleNavbarButton("dev")}
+              isSelected={activeButton === "dev"}
+            />
+            <NavbarButton
+              text="About"
+              onClick={() => handleNavbarButton("about")}
+              isSelected={activeButton === "about"}
+            />
           </div>
         )}
         <NavbarButton
           icon={isDarkMode ? <IconSun /> : <IconMoon />}
-          onClick={() => themeSwitch()}
+          // onClick={() => themeSwitch()}
+          onClick={() => {}}
+          isSelected={false}
         />
       </div>
-      <Outlet />
+      <div className="mx-auto max-w-[1440px]">
+        <Outlet />
+      </div>
     </div>
   );
-
-  // <div className="transition-all dark:bg-dark-background dark:text-dark-text">
-  //   <Sidebar />
-  //   <div className="mb-4 flex h-16 items-center justify-between border-b-[1px] border-divider px-2">
-  //     <NavbarButton
-  //       icon={<IconMenu2 />}
-  //       onClick={() => handleSidebar()}
-  //       text="Menu"
-  //     />
-  //     <h1 className="text-center text-base font-medium sm:text-lg md:text-xl">
-  //       E. Salih Özdemir
-  //     </h1>
-  //     <NavbarButton
-  //       icon={isDarkMode ? <IconSun /> : <IconMoon />}
-  //       onClick={() => themeSwitch()}
-  //       text=""
-  //     />
-  //   </div>
-  //   <Outlet />
-  // </div>
 }
 
 export default Navbar;

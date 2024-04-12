@@ -10,7 +10,7 @@ function NotFound() {
   };
 
   return (
-    <div className="bg-background flex h-screen flex-col items-center justify-between px-6 py-10">
+    <div className="flex h-screen flex-col items-center justify-between px-6 py-10">
       <div className="col-span-3 flex w-full items-center">
         <div className="mx-4 h-min w-full border-[1px]"></div>
         <div className="mx-auto flex flex-col items-center justify-center text-center">

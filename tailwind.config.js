@@ -21,7 +21,15 @@ export default {
           text: "#D1D1D1",
         },
       },
+      animation: {
+        gradient: "gradient 4s linear infinite",
+      },
+      keyframes: {
+        gradient: {
+          to: { "background-position": "200% center" },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };

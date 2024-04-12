@@ -21,19 +21,18 @@ function Sidebar() {
       <div
         className={
           isSideBar
-            ? "fixed h-full w-full cursor-pointer bg-black opacity-30 transition-all"
+            ? "fixed z-10 h-full w-full cursor-pointer bg-black opacity-30 transition-all"
             : "pointer-events-none fixed h-full w-full bg-black opacity-0 transition-all"
         }
         onClick={() => {
           setIsSideBar(false);
         }}
       ></div>
+      {/* sidebar itself */}
       <div
-        className={
-          isSideBar
-            ? "fixed left-0 top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:w-72"
-            : "fixed left-[-16rem] top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:left-[-18rem] md:w-72"
-        }
+        className={`fixed top-0 z-20 block h-full w-64 border-r-4 border-rose-400 bg-[#0F1111] transition-all duration-300 ease-in-out md:w-72 ${
+          isSideBar ? "left-0" : "left-[-16rem] md:left-[-18rem]"
+        }`}
       >
         <div className="mx-2 my-4 h-full">
           <SidebarButton

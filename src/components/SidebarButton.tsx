@@ -23,7 +23,7 @@ function SidebarButton({
     // h-${isBig ? "12" : "10"}
     <button
       className={`${isBig && "mb-4"} flex w-full items-center justify-start ${
-        underDevelopment && "pointer-events-none text-black/30"
+        underDevelopment && "pointer-events-none text-white/30"
       }`}
       onClick={handleButtonClick}
     >

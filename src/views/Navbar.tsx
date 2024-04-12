@@ -76,7 +76,7 @@ function Navbar() {
           onClick={() => themeSwitch()}
         />
       </div>
-      {/* <Outlet /> */}
+      <Outlet />
     </div>
   );
 

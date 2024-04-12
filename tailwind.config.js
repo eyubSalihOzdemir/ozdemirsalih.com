@@ -14,7 +14,7 @@ export default {
         accent: "#f26e59",
         secondary: "#B2B2B268",
         background: "#EDEDED",
-        divider: "#d1d1d1",
+        divider: "#d1d1d18",
         dark: {
           background: "#191919",
           secondary: "#262626",

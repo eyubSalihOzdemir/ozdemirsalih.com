@@ -7,6 +7,9 @@ import { IconSailboat } from "@tabler/icons-react";
 import { IconBookmarks } from "@tabler/icons-react";
 import SidebarButton from "./SidebarButton.tsx";
 import { useNavigate } from "react-router-dom";
+import SidebarTitle from "./SidebarTitle.tsx";
+SidebarTitle;
+import { IconTerminal2 } from "@tabler/icons-react";
 
 function Sidebar() {
   const { isSideBar, setIsSideBar } = useStateContext();
@@ -14,6 +17,7 @@ function Sidebar() {
 
   return (
     <div>
+      {/* outisde of sidebar */}
       <div
         className={
           isSideBar
@@ -31,7 +35,7 @@ function Sidebar() {
             : "fixed left-[-16rem] top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:left-[-18rem] md:w-72"
         }
       >
-        <div className="h-full flex-col divide-y-2 divide-divider bg-opacity-50 p-2">
+        <div className="mx-2 my-4 h-full">
           <SidebarButton
             icon={<IconHome2 />}
             onClick={() => {
@@ -39,12 +43,10 @@ function Sidebar() {
               setIsSideBar(false);
             }}
             text="Home"
-            isBig={true}
+            isBig={false}
           />
-          <div className="py-4">
-            <h1 className="start flex h-10 items-end pb-1 pl-2 text-xl font-semibold">
-              Blog
-            </h1>
+          <div className="mt-4">
+            <SidebarTitle text="Blog" />
             <SidebarButton
               icon={<IconWriting />}
               onClick={() => {
@@ -52,7 +54,7 @@ function Sidebar() {
                 setIsSideBar(false);
               }}
               text="Articles"
-              underDevelopment={true}
+              underDevelopment={false}
             />
             <SidebarButton
               icon={<IconSailboat />}
@@ -84,6 +86,25 @@ function Sidebar() {
                 console.log("Writing clicked");
               }}
               text="Bookmarks"
+              underDevelopment={true}
+            />
+          </div>
+          <div className="mt-4">
+            <SidebarTitle text="Dev" />
+            <SidebarButton
+              icon={<IconTerminal2 />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Projects"
+              underDevelopment={true}
+            />
+            <SidebarButton
+              icon={<IconTerminal2 />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text="Shorts"
               underDevelopment={true}
             />
           </div>

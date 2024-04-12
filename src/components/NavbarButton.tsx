@@ -7,23 +7,27 @@ import { ReactNode } from "react";
 // takes a text
 
 interface Props {
-  icon: ReactNode;
+  text?: string;
   onClick: () => void;
-  text: string;
+  icon?: ReactNode;
 }
 
-function NavbarButton({ icon, onClick, text }: Props) {
+function NavbarButton({ text, onClick, icon }: Props) {
   const handleButtonClick = () => {
     onClick();
   };
 
   return (
-    <div className="flex min-w-20 justify-end" onClick={handleButtonClick}>
-      <button className="flex items-center gap-1 px-2 py-2 hover:bg-secondary hover:transition-all dark:hover:bg-dark-secondary">
-        <div className="[&>*]:size-5 [&>*]:lg:size-6">{icon}</div>
-        {text && <h1 className="text-sm sm:text-base">{text}</h1>}
-      </button>
-    </div>
+    <button className="flex items-center py-2" onClick={handleButtonClick}>
+      <div className={`${icon && "flex items-center gap-1"}`}>
+        {icon && (
+          <div className={`flex size-5 items-center ${!text && "mx-2"}`}>
+            {icon}
+          </div>
+        )}
+        {text && <h1 className="">{text}</h1>}
+      </div>
+    </button>
   );
 }
 

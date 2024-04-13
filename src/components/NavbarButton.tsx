@@ -1,4 +1,3 @@
-import { id } from "date-fns/locale";
 import { ReactNode } from "react";
 
 interface Props {

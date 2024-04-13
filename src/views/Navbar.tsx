@@ -8,19 +8,19 @@ import Sidebar from "../components/Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
 
 function Navbar() {
-  const checkTheme = () => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      return true;
-    } else {
-      document.documentElement.classList.remove("dark");
-      return false;
-    }
-  };
+  // const checkTheme = () => {
+  //   if (
+  //     localStorage.theme === "dark" ||
+  //     (!("theme" in localStorage) &&
+  //       window.matchMedia("(prefers-color-scheme: dark)").matches)
+  //   ) {
+  //     document.documentElement.classList.add("dark");
+  //     return true;
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //     return false;
+  //   }
+  // };
 
   const themeSwitch = () => {
     // if (document.documentElement.classList.contains("dark")) {
@@ -62,7 +62,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="bg-[#0F1111] text-white transition-all">
+    <div className="font-Roboto bg-[#0F1111] text-white transition-all">
       {width < breakpoint && <Sidebar />}
       <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
         {width < breakpoint ? (

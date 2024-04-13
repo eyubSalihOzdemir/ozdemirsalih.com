@@ -4,6 +4,11 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        Poppins: ["Poppins", "sans-serif"],
+        Inter: ["Inter", "sans-serif"],
+        Roboto: ["Roboto", "sans-serif"],
+      },
       borderRadius: {
         button: "8px",
       },

@@ -35,7 +35,7 @@ function Home() {
             here.
           </button>
         </div>
-        <div className="flex animate-fade-down pt-4 text-xl font-light animate-delay-300 animate-duration-500 animate-ease-out">
+        <div className="flex-rows-1 animate-fade-down pt-4 text-xl font-light animate-delay-300 animate-duration-500 animate-ease-out">
           <span>Discover my personal content on my&nbsp;</span>
           <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
             blog.

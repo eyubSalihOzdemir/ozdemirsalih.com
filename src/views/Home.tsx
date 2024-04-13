@@ -1,9 +1,9 @@
-import iRobotLogo from "../assets/i-robot-logo.png";
-import iRobotLogoWhite from "../assets/i-robot-logo-white.png";
-import { useStateContext } from "../contexts/ContextProvider.tsx";
+// import iRobotLogo from "../assets/i-robot-logo.png";
+// import iRobotLogoWhite from "../assets/i-robot-logo-white.png";
+// import { useStateContext } from "../contexts/ContextProvider.tsx";
 
 function Home() {
-  const { isDarkMode } = useStateContext();
+  // const { isDarkMode } = useStateContext();
 
   return (
     <div className="mx-6 flex h-[calc(100vh-80px)] flex-col overflow-auto">

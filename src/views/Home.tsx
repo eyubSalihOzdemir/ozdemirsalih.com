@@ -1,6 +1,8 @@
 // import iRobotLogo from "../assets/i-robot-logo.png";
 // import iRobotLogoWhite from "../assets/i-robot-logo-white.png";
 // import { useStateContext } from "../contexts/ContextProvider.tsx";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandLinkedin } from "@tabler/icons-react";
 
 function Home() {
   // const { isDarkMode } = useStateContext();
@@ -40,6 +42,26 @@ function Home() {
           <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
             blog.
           </button>
+        </div>
+        <div className="flex gap-6 pt-4 font-light text-gray-400">
+          <a
+            href="https://github.com/eyubSalihOzdemir"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex gap-1 p-1 transition-transform hover:scale-105"
+          >
+            <IconBrandGithub></IconBrandGithub>
+            <h1>GitHub</h1>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/eyubsalihozdemir/"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex gap-1 p-1 transition-transform hover:scale-105"
+          >
+            <IconBrandLinkedin></IconBrandLinkedin>
+            <h1>LinkedIn</h1>
+          </a>
         </div>
         {/* <svg
           width="512"

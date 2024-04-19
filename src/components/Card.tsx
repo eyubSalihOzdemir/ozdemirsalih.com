@@ -3,17 +3,26 @@
 interface Props {
   onClick?: () => void;
   title: string;
-  width?: string;
-  height?: string;
-  text?: string;
-  footer?: string;
+  description: string;
+  footer: string;
 }
 
-function Card({ title, footer }: Props) {
+function Card({ title, footer, description }: Props) {
+  // max-w-[26rem]
   return (
-    <div className="flex h-full  min-w-52 max-w-[26rem] flex-col rounded-sm border p-2 text-left transition-transform hover:scale-105 hover:bg-secondary">
-      <h1 className="text-md line-clamp-2	">{title}</h1>
-      <h1 className="text-sm text-dark-secondary/60">{footer}</h1>
+    <div className="flex h-full w-full min-w-52 flex-col rounded-md border border-secondary text-left transition-transform hover:scale-[102%] overflow-hidden">
+      <img
+        src="/lorempicsum.jpg"
+        alt="Article image"
+        className="h-40 w-full object-cover"
+      />
+      <div className="p-4">
+        <h1 className="line-clamp-2 text-lg font-medium">{title}</h1>
+        <h1 className="pb-4 text-sm text-secondary">{footer}</h1>
+        <span className="font-light">
+          {description}
+        </span>
+      </div>
     </div>
   );
 }

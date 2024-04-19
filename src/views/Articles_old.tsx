@@ -57,6 +57,8 @@ function Articles() {
               <Card
                 title={article.title}
                 footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")}
+                description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
+                Lorem, ipsum."
               />
             </button>
           ))}

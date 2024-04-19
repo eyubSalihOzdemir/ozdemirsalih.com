@@ -148,7 +148,8 @@ function Navbar() {
           isSelected={false}
         />
       </div>
-      <div className="mx-auto h-[calc(100vh-80px)] max-w-[1440px] overflow-auto">
+      {/* h-[calc(100vh-80px)] */}
+      <div className="mx-auto min-h-[calc(100vh-80px)] max-w-[1440px]">
         <div className="mx-6">
           <Outlet />
         </div>

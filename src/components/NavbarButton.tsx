@@ -1,20 +1,38 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface Props {
   text?: string;
   onClick: () => void;
   icon?: ReactNode;
   isSelected: boolean;
+  hoverItems?: ReactNode[];
 }
 
-function NavbarButton({ text, onClick, icon, isSelected = false }: Props) {
+function NavbarButton({
+  text,
+  onClick,
+  icon,
+  isSelected = false,
+  hoverItems,
+}: Props) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleButtonClick = () => {
     onClick();
+  };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
     <button
-      className="flex items-center py-2 duration-300 hover:scale-110 hover:transition-all"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`flex items-center py-0 duration-300 lg:text-lg ${hoverItems && "cursor-default"}`}
       onClick={handleButtonClick}
     >
       <div className={`${icon && "flex items-center gap-1"}`}>
@@ -25,10 +43,24 @@ function NavbarButton({ text, onClick, icon, isSelected = false }: Props) {
         )}
         {text && (
           <h1
-            className={`${isSelected && "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-transparent transition-all"}`}
+            className={`transition-all ${isSelected ? "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-transparent" : "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-white"} ${hoverItems && isHovered && "opacity-60"}`}
           >
             {text}
           </h1>
+        )}
+        {isHovered && hoverItems && (
+          <div className="fixed z-[1] grid w-max animate-fade gap-4 rounded-sm border-l-0 border-[#fa9372] bg-black px-4 py-4 text-sm shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] shadow-[#ef709b] transition-all animate-duration-200">
+            {hoverItems.map((hoverItem, index) => (
+              <div key={index}>
+                <button
+                  className="w-full text-start transition-all"
+                  onClick={() => setIsHovered(false)}
+                >
+                  {hoverItem}
+                </button>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </button>

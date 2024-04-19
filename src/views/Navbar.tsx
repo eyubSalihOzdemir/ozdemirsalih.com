@@ -1,7 +1,14 @@
-import { IconMenu2 } from "@tabler/icons-react";
+import {
+  IconMenu2,
+  IconWriting,
+  IconSailboat,
+  IconCamera,
+  IconVideo,
+  IconBookmarks,
+} from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import Sidebar from "../components/Sidebar.tsx";
@@ -40,7 +47,9 @@ function Navbar() {
 
   const { isDarkMode, setIsDarkMode } = useStateContext();
   const { isSideBar, setIsSideBar } = useStateContext();
-  const [activeButton, setActiveButton] = useState("home");
+  // const [activeButton, setActiveButton] = useState("/");
+  const { activeSidebarButton, setActiveSidebarButton } = useStateContext();
+  const navigate = useNavigate();
 
   // setIsDarkMode(checkTheme());
 
@@ -51,8 +60,11 @@ function Navbar() {
     setIsSideBar(!isSideBar);
   };
 
-  const handleNavbarButton = (text: string) => {
-    setActiveButton(text);
+  const handleNavbarButton = (route: string, activeButton: string) => {
+    // setActiveButton(activeButton);
+    setActiveSidebarButton(activeButton);
+
+    navigate(`/${route}`);
   };
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -62,7 +74,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="font-Roboto bg-[#0F1111] text-white transition-all">
+    <div className="bg-[#0F1111] font-Roboto text-white transition-all">
       {width < breakpoint && <Sidebar />}
       <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
         {width < breakpoint ? (
@@ -80,23 +92,49 @@ function Navbar() {
           <div className="flex gap-6">
             <NavbarButton
               text="Home"
-              onClick={() => handleNavbarButton("home")}
-              isSelected={activeButton === "home"}
+              onClick={() => handleNavbarButton("", "home")}
+              isSelected={activeSidebarButton === "home"}
             />
             <NavbarButton
               text="Blog"
-              onClick={() => handleNavbarButton("blog")}
-              isSelected={activeButton === "blog"}
+              onClick={() => {}}
+              isSelected={activeSidebarButton === "blog"}
+              hoverItems={[
+                <div
+                  className="flex gap-2"
+                  onClick={() => handleNavbarButton("articles", "blog")}
+                >
+                  <IconWriting className="size-5" />
+                  Articles
+                </div>,
+                <div className="flex gap-2">
+                  <IconSailboat className="size-5" />
+                  Life Updates
+                </div>,
+                <div className="flex gap-2">
+                  <IconCamera className="size-5" />
+                  Photographs
+                </div>,
+                <div className="flex gap-2">
+                  <IconVideo className="size-5" />
+                  Videos
+                </div>,
+                <div className="flex gap-2">
+                  <IconBookmarks className="size-5" />
+                  Bookmarks
+                </div>,
+              ]}
             />
             <NavbarButton
               text="Dev"
-              onClick={() => handleNavbarButton("dev")}
-              isSelected={activeButton === "dev"}
+              onClick={() => {}}
+              isSelected={activeSidebarButton === "dev"}
+              hoverItems={[<h1>Projects</h1>, <h1>Tech Stack</h1>]}
             />
             <NavbarButton
               text="About"
-              onClick={() => handleNavbarButton("about")}
-              isSelected={activeButton === "about"}
+              onClick={() => handleNavbarButton("about", "about")}
+              isSelected={activeSidebarButton === "about"}
             />
           </div>
         )}

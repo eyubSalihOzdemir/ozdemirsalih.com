@@ -1,6 +1,3 @@
-// import iRobotLogo from "../assets/i-robot-logo.png";
-// import iRobotLogoWhite from "../assets/i-robot-logo-white.png";
-// import { useStateContext } from "../contexts/ContextProvider.tsx";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 
@@ -43,7 +40,7 @@ function Home() {
             blog.
           </button>
         </div>
-        <div className="flex gap-6 pt-4 font-light text-gray-400">
+        <div className="flex animate-fade-down gap-6 pt-4 font-light text-gray-400 animate-delay-[400ms] animate-duration-500 animate-ease-out">
           <a
             href="https://github.com/eyubSalihOzdemir"
             rel="noopener noreferrer"

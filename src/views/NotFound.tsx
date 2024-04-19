@@ -1,35 +1,37 @@
-import alien from "../assets/notfound-alien.png";
-import { IconHome } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../contexts/ContextProvider";
 
 function NotFound() {
   const navigate = useNavigate();
+  const { setActiveSidebarButton } = useStateContext();
 
-  const handleGoHome = () => {
+  const handleButtonClick = () => {
+    setActiveSidebarButton("home");
     navigate("/");
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-between px-6 py-10">
-      <div className="col-span-3 flex w-full items-center">
-        <div className="mx-4 h-min w-full border-[1px]"></div>
-        <div className="mx-auto flex flex-col items-center justify-center text-center">
-          <h1 className="text-6xl font-medium md:text-7xl">404</h1>
-          <h1 className="text-2xl font-medium md:text-3xl">Not Found</h1>
-        </div>
-        <div className="mx-4 h-min w-full border-[1px]"></div>
-      </div>
-      <div className="flex flex-col justify-items-center gap-2">
-        <p className="text-base font-medium md:text-lg">Let's start again...</p>
+    <div className="flex h-screen flex-col items-center justify-evenly bg-[#0F1111] px-12 py-10 font-Roboto text-white transition-all">
+      <h1 className="animate-fade-down text-4xl font-semibold animate-duration-500 animate-ease-out">
+        404 Not Found
+      </h1>
+      <div className="animate-fade-down text-center text-3xl font-light animate-delay-100 animate-duration-500 animate-ease-out">
+        <span>
+          This page might be feeling a little depressed. Let's give it a virtual
+          hug and head back to the&nbsp;
+        </span>
         <button
-          className="flex h-12 items-center justify-center gap-1 rounded-lg border text-base font-medium md:text-lg"
-          onClick={handleGoHome}
+          className="inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text font-medium text-transparent transition-all hover:animate-wiggle hover:transition-all"
+          onClick={handleButtonClick}
         >
-          <IconHome></IconHome>
-          Home
+          Homepage!
         </button>
       </div>
-      <img src={alien} className="h-40 animate-bounce-slow  md:h-44" />
+
+      <h1 className="animate-fade-down text-center text-lg font-extralight animate-delay-200 animate-duration-500 animate-ease-out">
+        Don't forget to check on your friends once in a while - you never know
+        how much they might need you.
+      </h1>
     </div>
   );
 }

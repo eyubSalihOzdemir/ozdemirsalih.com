@@ -48,7 +48,10 @@ function Navbar() {
   const { isDarkMode, setIsDarkMode } = useStateContext();
   const { isSideBar, setIsSideBar } = useStateContext();
   // const [activeButton, setActiveButton] = useState("/");
-  const { activeSidebarButton, setActiveSidebarButton } = useStateContext();
+  const {
+    activeNavbarButton: activeSidebarButton,
+    setActiveNavbarButton: setActiveSidebarButton,
+  } = useStateContext();
   const navigate = useNavigate();
 
   // setIsDarkMode(checkTheme());
@@ -145,8 +148,10 @@ function Navbar() {
           isSelected={false}
         />
       </div>
-      <div className="mx-auto max-w-[1440px]">
-        <Outlet />
+      <div className="mx-auto h-[calc(100vh-80px)] max-w-[1440px] overflow-auto">
+        <div className="mx-6">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

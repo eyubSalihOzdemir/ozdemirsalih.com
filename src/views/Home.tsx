@@ -5,7 +5,7 @@ function Home() {
   // const { isDarkMode } = useStateContext();
 
   return (
-    <div className="mx-6 flex h-[calc(100vh-80px)] flex-col overflow-auto">
+    <div className="flex flex-col">
       <div className="flex h-full flex-col items-start gap-4 pt-24">
         <div className="flex items-center justify-between">
           <div>

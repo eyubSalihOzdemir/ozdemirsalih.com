@@ -3,10 +3,10 @@ import { useStateContext } from "../contexts/ContextProvider";
 
 function NotFound() {
   const navigate = useNavigate();
-  const { setActiveSidebarButton } = useStateContext();
+  const { setActiveNavbarButton } = useStateContext();
 
   const handleButtonClick = () => {
-    setActiveSidebarButton("home");
+    setActiveNavbarButton("home");
     navigate("/");
   };
 

@@ -4,15 +4,16 @@ interface Props {
   onClick?: () => void;
   title: string;
   description: string;
+  thumbnail: string;
   footer: string;
 }
 
-function Card({ title, footer, description }: Props) {
+function Card({ title, footer, description, thumbnail }: Props) {
   // max-w-[26rem]
   return (
     <div className="flex h-full w-full min-w-52 flex-col rounded-md border border-secondary text-left transition-transform hover:scale-[102%] overflow-hidden">
       <img
-        src="/lorempicsum.jpg"
+        src={thumbnail}
         alt="Article image"
         className="h-40 w-full object-cover"
       />

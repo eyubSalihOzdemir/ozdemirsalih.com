@@ -1,9 +1,43 @@
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { useStateContext } from "../contexts/ContextProvider";
+import axios from "axios";
+import { format, parseISO } from "date-fns";
+
+interface Article {
+  id: number;
+  title: string;
+  body: string;
+  createdAt: string;
+  description: string;
+  thumbnail: string;
+}
 
 function Articles() {
+  const [articles, setArticles] = useState<Article[]>([]);
   const { setActiveNavbarButton } = useStateContext();
   setActiveNavbarButton("blog");
+
+  const getArticles = () => {
+    // setIsLoading(true);
+    axios
+      .get("http://127.0.0.1:8000/api/v1/articles")
+      .then(({ data }) => {
+        console.log(data.data);
+        // setIsLoading(false);
+        setArticles(data.data);
+        // set data
+      })
+      .catch(() => {
+        // setIsLoading(false);
+        console.log("error");
+        // handle errors
+      });
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
 
   return (
     <div className="flex flex-col pt-24 pb-24">
@@ -15,20 +49,9 @@ function Articles() {
       </span>
 
       <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
-        <Card title="Article Title" footer="01.01.2024" description="Lorem, ipsum dolor sit amet consectetur adipis elit. Sit, amet.
-          Lorem, ipsum."/>
+      {articles.map((article, index) => (
+            <Card key={index} thumbnail={article.thumbnail} title={article.title} footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")} description={article.description}/>
+          ))}
       </div>
     </div>
   );

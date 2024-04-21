@@ -5,6 +5,8 @@ import {
   IconCamera,
   IconVideo,
   IconBookmarks,
+  IconClipboardText,
+  IconCpu2,
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
@@ -110,29 +112,50 @@ function Navbar() {
                   <IconWriting className="size-5" />
                   Articles
                 </div>,
-                <div className="flex gap-2">
-                  <IconSailboat className="size-5" />
-                  Life Updates
-                </div>,
-                <div className="flex gap-2">
-                  <IconCamera className="size-5" />
-                  Photographs
-                </div>,
-                <div className="flex gap-2">
-                  <IconVideo className="size-5" />
-                  Videos
-                </div>,
-                <div className="flex gap-2">
-                  <IconBookmarks className="size-5" />
-                  Bookmarks
-                </div>,
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconSailboat className="size-5" />
+                    Life Updates
+                  </div>
+                </button>,
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconCamera className="size-5" />
+                    Photographs
+                  </div>
+                </button>,
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconVideo className="size-5" />
+                    Videos
+                  </div>
+                </button>,
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconBookmarks className="size-5" />
+                    Bookmarks
+                  </div>
+                </button>,
               ]}
             />
             <NavbarButton
               text="Dev"
               onClick={() => {}}
               isSelected={activeSidebarButton === "dev"}
-              hoverItems={[<h1>Projects</h1>, <h1>Tech Stack</h1>]}
+              hoverItems={[
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconClipboardText className="size-5" />
+                    Projects
+                  </div>
+                </button>,
+                <button disabled onClick={() => {}}>
+                  <div className="flex gap-2 text-gray-500">
+                    <IconCpu2 className="size-5" />
+                    Tech Stack
+                  </div>
+                </button>,
+              ]}
             />
             <NavbarButton
               text="About"

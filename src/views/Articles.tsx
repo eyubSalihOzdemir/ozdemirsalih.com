@@ -40,7 +40,7 @@ function Articles() {
   }, []);
 
   return (
-    <div className="flex flex-col pt-24 pb-24">
+    <div className="flex flex-col pb-24 pt-24">
       <h1 className="animate-fade-down pb-2 text-4xl font-medium animate-duration-500 animate-ease-out">
         Articles
       </h1>
@@ -49,9 +49,15 @@ function Articles() {
       </span>
 
       <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
-      {articles.map((article, index) => (
-            <Card key={index} thumbnail={article.thumbnail} title={article.title} footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")} description={article.description}/>
-          ))}
+        {articles.map((article, index) => (
+          <Card
+            key={index}
+            thumbnail={article.thumbnail}
+            title={article.title}
+            footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")}
+            description={article.description}
+          />
+        ))}
       </div>
     </div>
   );

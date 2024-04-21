@@ -1,5 +1,3 @@
-// import React, { ReactNode } from "react";
-
 import { useRef } from "react";
 import useInViewPort from "../hooks/UseInViewPort";
 
@@ -20,7 +18,6 @@ function Card({ title, footer, description, thumbnail }: Props) {
     <div className="flex h-full w-full min-w-52 flex-col overflow-hidden rounded-md border border-secondary text-left transition-transform hover:scale-[102%]">
       <img
         ref={targetRef}
-        //
         src={inViewport ? thumbnail : "src/assets/image-icon.png"}
         alt="Article image"
         className={`h-40 w-full object-cover`}

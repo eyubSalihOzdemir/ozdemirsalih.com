@@ -6,6 +6,6 @@
 @tailwind utilities;
 
 /* dark theme bg color: */
-/* body {
-  background-color: #191919;
-} */
+body {
+  background-color: #0f1111;
+}

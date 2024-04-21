@@ -79,7 +79,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="bg-[#0F1111] font-Roboto text-white transition-all">
+    <div className="h-screen font-Roboto text-white transition-all">
       {width < breakpoint && <Sidebar />}
       <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
         {width < breakpoint ? (
@@ -172,8 +172,9 @@ function Navbar() {
         />
       </div>
       {/* h-[calc(100vh-80px)] */}
-      <div className="mx-auto min-h-[calc(100vh-80px)] max-w-[1440px]">
-        <div className="mx-6">
+      {/* min-h-[calc(100vh-80px)] */}
+      <div className="mx-auto h-[calc(100vh-80px)] max-w-[1440px]">
+        <div className="mx-6 h-full max-h-max flex-1">
           <Outlet />
         </div>
       </div>

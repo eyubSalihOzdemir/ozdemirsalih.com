@@ -18,7 +18,7 @@ import Sidebar from "../components/Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
 import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
-import FlagEN from "../components/FlagEn.tsx";
+import FlagEN from "../components/FlagEN.tsx";
 
 function Navbar() {
   const { t, i18n } = useTranslation();

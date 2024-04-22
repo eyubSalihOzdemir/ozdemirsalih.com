@@ -7,6 +7,7 @@ import {
   IconBookmarks,
   IconClipboardText,
   IconCpu2,
+  IconLanguage,
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
@@ -15,8 +16,12 @@ import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import Sidebar from "../components/Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
+import { useTranslation } from "react-i18next";
+import FlagTR from "../components/FlagTR.tsx";
+import FlagEN from "../components/FlagEn.tsx";
 
 function Navbar() {
+  const { t, i18n } = useTranslation();
   // const checkTheme = () => {
   //   if (
   //     localStorage.theme === "dark" ||
@@ -42,8 +47,10 @@ function Navbar() {
     //   setIsDarkMode(true);
     // }
 
-    document.documentElement.classList.add("dark");
+    // force dark mode until we support light mode
     localStorage.setItem("theme", "dark");
+    document.documentElement.classList.add("dark");
+    document.body.classList.add("dark");
     setIsDarkMode(true);
   };
 
@@ -79,7 +86,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="h-screen font-Roboto text-white transition-all">
+    <div className="dark h-screen font-Roboto text-white transition-all">
       {width < breakpoint && <Sidebar />}
       <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
         {width < breakpoint ? (
@@ -96,12 +103,12 @@ function Navbar() {
           // desktop layout, show full navbar
           <div className="flex gap-6">
             <NavbarButton
-              text="Home"
+              text={t("navbar.menuButtons.home")}
               onClick={() => handleNavbarButton("", "home")}
               isSelected={activeSidebarButton === "home"}
             />
             <NavbarButton
-              text="Blog"
+              text={t("navbar.menuButtons.blog")}
               onClick={() => {}}
               isSelected={activeSidebarButton === "blog"}
               hoverItems={[
@@ -110,66 +117,103 @@ function Navbar() {
                   onClick={() => handleNavbarButton("articles", "blog")}
                 >
                   <IconWriting className="size-5" />
-                  Articles
+                  {t("navbar.submenuButtons.articles")}
                 </div>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconSailboat className="size-5" />
-                    Life Updates
+                    {t("navbar.submenuButtons.lifeUpdates")}
                   </div>
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconCamera className="size-5" />
-                    Photographs
+                    {t("navbar.submenuButtons.photographs")}
                   </div>
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconVideo className="size-5" />
-                    Videos
+                    {t("navbar.submenuButtons.videos")}
                   </div>
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconBookmarks className="size-5" />
-                    Bookmarks
+                    {t("navbar.submenuButtons.bookmarks")}
                   </div>
                 </button>,
               ]}
             />
             <NavbarButton
-              text="Dev"
+              text={t("navbar.menuButtons.dev")}
               onClick={() => {}}
               isSelected={activeSidebarButton === "dev"}
               hoverItems={[
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconClipboardText className="size-5" />
-                    Projects
+                    {t("navbar.submenuButtons.projects")}
                   </div>
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
                     <IconCpu2 className="size-5" />
-                    Tech Stack
+                    {t("navbar.submenuButtons.shorts")}
                   </div>
                 </button>,
               ]}
             />
             <NavbarButton
-              text="About"
+              text={t("navbar.menuButtons.about")}
               onClick={() => handleNavbarButton("about", "about")}
               isSelected={activeSidebarButton === "about"}
             />
           </div>
         )}
-        <NavbarButton
-          icon={isDarkMode ? <IconSun /> : <IconMoon />}
-          // onClick={() => themeSwitch()}
-          onClick={() => {}}
-          isSelected={false}
-        />
+        <div className="flex">
+          <NavbarButton
+            icon={isDarkMode ? <IconSun /> : <IconMoon />}
+            // onClick={() => themeSwitch()}
+            onClick={() => {}}
+            isSelected={false}
+          />
+          <NavbarButton
+            icon={<IconLanguage />}
+            onClick={() => {}}
+            isSelected={false}
+            hoverItems={[
+              <button
+                onClick={() => {
+                  i18n.changeLanguage("en");
+                  localStorage.setItem("language", "en");
+                }}
+              >
+                <div className="flex gap-2">
+                  {/* <IconClipboardText className="size-5" /> */}
+                  <div className="flex items-center justify-center gap-2">
+                    <FlagEN />
+                    {t("languages.en")}
+                  </div>
+                </div>
+              </button>,
+              <button
+                onClick={() => {
+                  i18n.changeLanguage("tr");
+                  localStorage.setItem("language", "tr");
+                }}
+              >
+                <div className="flex gap-2">
+                  {/* <IconCpu2 className="size-5" /> */}
+                  <div className="flex items-center justify-center gap-2">
+                    <FlagTR />
+                    {t("languages.tr")}
+                  </div>
+                </div>
+              </button>,
+            ]}
+          />
+        </div>
       </div>
       {/* h-[calc(100vh-80px)] */}
       {/* min-h-[calc(100vh-80px)] */}

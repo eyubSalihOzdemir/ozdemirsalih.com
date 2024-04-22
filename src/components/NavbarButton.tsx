@@ -36,7 +36,8 @@ function NavbarButton({
       className={`flex items-center py-0 duration-300 lg:text-lg ${hoverItems && "cursor-default"}`}
       onClick={handleButtonClick}
     >
-      <div className={`${icon && "flex items-center gap-1"}`}>
+      {/* className={`${icon && "flex items-center gap-1"}`} */}
+      <div>
         {icon && (
           <div className={`flex size-5 items-center ${!text && "mx-2"}`}>
             {icon}

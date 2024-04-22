@@ -1,0 +1,59 @@
+{
+  "homepage": {
+    "title": {
+      "greetings": "Selam!",
+      "myNameIs": "Ben <1>Salih</1>"
+    },
+    "introduction1": "Web ve mobil uygulamaları geliştiriyorum. Geliştirme tecrübem hakkında daha fazla bilgiyi <1>buradan</1> öğrenebilirsiniz.",
+    "introduction2": "Kişisel içeriklerimi <1>blogumda</1> keşfedin."
+  },
+  "aboutPage": {
+    "title": {
+      "aboutName": "<1>Salih Özdemir</1> Hakkında",
+      "professional": "Profesyonel Arkaplan"
+    },
+    "greetings": "Merhaba.",
+    "introduction1": "Bilgisayar Bilimleri mezunuyum ve kariyerime mobil uygulama geliştirerek başladım. Şu anda web geliştirme alanında kendimi geliştiriyorum, bu web sitesi de öğrenme yolculuğumun bir yansıması.",
+    "introduction2": "Şu an Belçika'daki Antwerp Üniversitesi'nde ek Bilgisayar Bilimleri dersleri alıyorum.",
+    "introduction3": "Bu web sitesinde projeler, kod örnekleri, çeşitli konulardaki yazılar, hikayeler ve notlar gibi kişisel ve profesyonel içeriklerin bir karışımını paylaşacağım.",
+    "professionalIntroduction1": "Üniversite yıllarımda, üniversitenin birçok farklı web sitesinde gezinmek zorunda kalmak can sıkıcıydı. Bu sorunu -sadece kendim için değil herkes için- çözmek için Java (o zamanlar mobil uygulama geliştirmede popülerdi) kullanarak başarılı ve kullanıcılar tarafından beğenilen bir mobil uygulama geliştirdim.",
+    "professionalIntroduction2": "Sonra Flutter'a geçtim ve birkaç mini uygulama oluşturdum, bunlardan biri olan <2>(KeySMR)</2> PlayStore'da neredeyse 10.000 indirmeye ulaştı. Üniversitemin son yılında, rüzgar türbinlerinde öngörücü bakım için kullanılan bir IoT cihazı için uygulama oluşturmak üzere Flutter kullanan bir robotik ve yazılım startup'ında çalıştım.",
+    "professionalIntroduction3": "Daha sonra, Swift & SwiftUI ile tanıştım ve hemen çok beğendim. Fakat her ne kadar harika bir sistem olsa da henüz çok toy olduğunu fark ettim.",
+    "professionalIntroduction4": "Bir geliştirici olarak becerilerimi genişletmek için web geliştirme öğrenmenin öneminin farkındaydım ve fırsat bulur bulmaz bu alana girdim. Bu keşif sayesinde sonunda şu anda gezindiğiniz web sitesini oluşturdum."
+  },
+  "articlesPage": {
+    "title": {
+      "articles": "Yazılar"
+    },
+    "error": {
+      "fetchingError": "Yazılar getirilirken hata oluştu."
+    },
+    "description": "Yazı sayfası için açıklama."
+  },
+  "navbar": {
+    "menuButtons": {
+      "home": "Anasayfa",
+      "blog": "Blog",
+      "dev": "Geliştirici",
+      "about": "Hakkımda"
+    },
+    "submenuButtons": {
+      "articles": "Yazılar",
+      "lifeUpdates": "Hayat Güncellemeleri",
+      "photographs": "Fotoğraflar",
+      "videos": "Videolar",
+      "bookmarks": "Favoriler",
+      "projects": "Projeler",
+      "shorts": "Kısa İçerikler"
+    }
+  },
+  "notFound": {
+    "404": "404 Bulunamadı",
+    "mainText": "Bu sayfa biraz yalnız hissediyor olabilir. Ona sanal bir sarılma verip <1>anasayfaya</1> dönelim!",
+    "secondaryText": "Arada bir arkadaşlarınızı kontrol etmeyi unutmayın - size ne kadar ihtiyaçları olabileceğini asla bilemezsiniz."
+  },
+  "languages": {
+    "en": "İngilizce",
+    "tr": "Türkçe"
+  }
+}

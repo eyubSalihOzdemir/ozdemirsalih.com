@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import { useStateContext } from "../contexts/ContextProvider";
 import axios from "axios";
 import { format, parseISO } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 interface Article {
   id: number;
@@ -14,6 +15,7 @@ interface Article {
 }
 
 function Articles() {
+  const { t } = useTranslation();
   const [articles, setArticles] = useState<Article[]>([]);
   const [isError, setIsError] = useState(false);
   const { setActiveNavbarButton } = useStateContext();
@@ -43,16 +45,16 @@ function Articles() {
   return (
     <div className="flex h-full flex-col pb-24 pt-24">
       <h1 className="animate-fade-down pb-2 text-4xl font-medium animate-duration-500 animate-ease-out">
-        Articles
+        {t("articlesPage.title.articles")}
       </h1>
       <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
-        Description for articles.
+        {t("articlesPage.description")}
       </span>
 
       {isError ? (
         <div className="flex h-full items-center justify-center ">
           <h1 className="animate-fade-down animate-delay-200 animate-duration-500 animate-ease-in">
-            Error fetching the articles.
+            {t("articlesPage.error.fetchingError")}
           </h1>
         </div>
       ) : (

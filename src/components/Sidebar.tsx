@@ -10,8 +10,10 @@ import { useNavigate } from "react-router-dom";
 import SidebarTitle from "./SidebarTitle.tsx";
 SidebarTitle;
 import { IconTerminal2 } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 
 function Sidebar() {
+  const { t } = useTranslation();
   const { isSideBar, setIsSideBar } = useStateContext();
   const navigate = useNavigate();
 
@@ -41,11 +43,11 @@ function Sidebar() {
               navigate("/");
               setIsSideBar(false);
             }}
-            text="Home"
+            text={t("navbar.menuButtons.home")}
             isBig={false}
           />
           <div className="mt-4">
-            <SidebarTitle text="Blog" />
+            <SidebarTitle text={t("navbar.menuButtons.blog")} />
             <SidebarButton
               icon={<IconWriting />}
               onClick={() => {
@@ -89,13 +91,13 @@ function Sidebar() {
             />
           </div>
           <div className="mt-4">
-            <SidebarTitle text="Dev" />
+            <SidebarTitle text={t("navbar.menuButtons.dev")} />
             <SidebarButton
               icon={<IconTerminal2 />}
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text="Projects"
+              text={t("navbar.submenuButtons.projects")}
               underDevelopment={true}
             />
             <SidebarButton
@@ -103,7 +105,7 @@ function Sidebar() {
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text="Shorts"
+              text={t("navbar.submenuButtons.shorts")}
               underDevelopment={true}
             />
           </div>

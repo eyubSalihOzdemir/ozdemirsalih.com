@@ -1,8 +1,15 @@
 import { IconBrandGithub } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "@tabler/icons-react";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 
 function Home() {
   // const { isDarkMode } = useStateContext();
+  const { t, i18n } = useTranslation();
+  // useEffect(() => {
+  //   i18n.changeLanguage("tr");
+  // });
 
   return (
     <div className="flex flex-col">
@@ -10,30 +17,36 @@ function Home() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="animate-fade-down text-3xl animate-duration-500 animate-ease-out">
-              Hello there!
+              {t("homepage.title.greetings")}
             </h1>
-            <div className="flex-rows-1 animate-fade-down text-5xl animate-delay-100 animate-duration-500 animate-ease-out">
-              <span>My name is&nbsp;</span>
-              <span className="animate-gradient bg-gradient-to-r from-rose-300 via-orange-300 to-rose-300 bg-[length:200%_auto] bg-clip-text font-medium text-transparent transition-all duration-500">
-                Salih
-              </span>
+            <div className="flex-rows-1 animate-fade-down whitespace-pre-wrap text-5xl animate-delay-100 animate-duration-500 animate-ease-out">
+              <Trans i18nKey={"homepage.title.myNameIs"}>
+                <span>My name is</span>
+                <span className="animate-gradient bg-gradient-to-r from-rose-300 via-orange-300 to-rose-300 bg-[length:200%_auto] bg-clip-text font-medium text-transparent transition-all duration-500">
+                  Salih
+                </span>
+              </Trans>
             </div>
           </div>
         </div>
         <div className="flex-rows-1 animate-fade-down items-baseline pt-8 text-xl font-light animate-delay-200 animate-duration-500 animate-ease-out">
-          <span>
-            I develop web & mobile apps. Learn more about my development
-            experience&nbsp;
-          </span>
-          <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
-            here.
-          </button>
+          <Trans i18nKey="homepage.introduction1">
+            <span>
+              I develop web & mobile apps. Learn more about my development
+              experience&nbsp;
+            </span>
+            <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
+              here.
+            </button>
+          </Trans>
         </div>
         <div className="flex-rows-1 animate-fade-down pt-4 text-xl font-light animate-delay-300 animate-duration-500 animate-ease-out">
-          <span>Discover my personal content on my&nbsp;</span>
-          <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
-            blog.
-          </button>
+          <Trans i18nKey="homepage.introduction2">
+            <span>Discover my personal content on my&nbsp;</span>
+            <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
+              blog.
+            </button>
+          </Trans>
         </div>
         <div className="flex animate-fade-down gap-6 pt-4 font-light text-gray-400 animate-delay-[400ms] animate-duration-500 animate-ease-out">
           <a

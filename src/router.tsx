@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Navbar from "./views/Navbar";
 import Home from "./views/Home";
 import NotFound from "./views/NotFound";
+import About from "./views/About";
 import Articles from "./views/Articles";
-import Article from "./views/Article";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/articles/:id",
-        element: <Article />,
+        element: <div>Article</div>,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

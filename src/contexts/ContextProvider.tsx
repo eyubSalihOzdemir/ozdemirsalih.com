@@ -6,6 +6,8 @@ interface ContextValue {
   setIsDarkMode: Dispatch<SetStateAction<boolean>>;
   isSideBar: boolean;
   setIsSideBar: Dispatch<SetStateAction<boolean>>;
+  activeNavbarButton: string;
+  setActiveNavbarButton: Dispatch<SetStateAction<string>>;
 }
 
 const StateContext = createContext<ContextValue>({
@@ -14,6 +16,8 @@ const StateContext = createContext<ContextValue>({
   setIsDarkMode: () => {},
   isSideBar: false,
   setIsSideBar: () => {},
+  activeNavbarButton: "home",
+  setActiveNavbarButton: () => {},
 });
 
 interface Props {
@@ -23,6 +27,7 @@ interface Props {
 export const ContextProvider = ({ children }: Props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
+  const [activeSidebarButton, setActiveSidebarButton] = useState("home");
 
   return (
     <StateContext.Provider
@@ -31,6 +36,8 @@ export const ContextProvider = ({ children }: Props) => {
         setIsDarkMode,
         isSideBar,
         setIsSideBar,
+        activeNavbarButton: activeSidebarButton,
+        setActiveNavbarButton: setActiveSidebarButton,
       }}
     >
       {children}

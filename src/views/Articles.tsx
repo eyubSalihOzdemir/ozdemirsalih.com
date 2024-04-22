@@ -1,64 +1,72 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { useStateContext } from "../contexts/ContextProvider";
+import axios from "axios";
 import { format, parseISO } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 interface Article {
   id: number;
   title: string;
   body: string;
   createdAt: string;
+  description: string;
+  thumbnail: string;
 }
 
 function Articles() {
-  const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
   const [articles, setArticles] = useState<Article[]>([]);
-  const navigate = useNavigate();
-
-  const getArticles = () => {
-    setIsLoading(true);
-    axios
-      .get("http://127.0.0.1:8000/api/v1/articles")
-      .then(({ data }) => {
-        console.log(data.data);
-        setIsLoading(false);
-        setArticles(data.data);
-        // set data
-      })
-      .catch(() => {
-        setIsLoading(false);
-        console.log("error");
-        // handle errors
-      });
-  };
+  const [isError, setIsError] = useState(false);
+  const { setActiveNavbarButton } = useStateContext();
+  setActiveNavbarButton("blog");
 
   useEffect(() => {
-    getArticles();
+    const fetchArticles = () => {
+      axios
+        .get("http://127.0.0.1:8000/api/v1/articles")
+        .then(({ data }) => {
+          console.log(data.data);
+          setArticles(data.data);
+          // setIsLoading(false);
+          // set data
+        })
+        .catch((errors) => {
+          setIsError(true);
+          // setIsLoading(false);
+          console.log(errors);
+          // handle errors
+        });
+    };
+
+    fetchArticles();
   }, []);
 
   return (
-    <div className="flex h-[calc(100vh-80px)] flex-col overflow-auto ">
-      {isLoading && (
-        <div className="flex h-full w-full flex-col items-center justify-center">
-          <h1 className="text-lg">Loading...</h1>
+    <div className="flex h-full flex-col pb-24 pt-24">
+      <h1 className="animate-fade-down pb-2 text-4xl font-medium animate-duration-500 animate-ease-out">
+        {t("articlesPage.title.articles")}
+      </h1>
+      <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
+        {t("articlesPage.description")}
+      </span>
+
+      {isError ? (
+        <div className="flex h-full items-center justify-center ">
+          <h1 className="animate-fade-down animate-delay-200 animate-duration-500 animate-ease-in">
+            {t("articlesPage.error.fetchingError")}
+          </h1>
         </div>
-      )}
-      <h1 className="pb-4 text-center text-2xl font-medium">Articles</h1>
-      {!isLoading && (
-        <div className="mx-auto grid grid-cols-1 gap-3 px-12 pb-12 sm:grid-cols-2">
+      ) : (
+        <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (
-            <button
+            <Card
               key={index}
-              onClick={() => {
-                navigate(`/articles/${article.id}`);
-              }}
-            >
-              <Card
-                title={article.title}
-                footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")}
-              />
-            </button>
+              thumbnail={article.thumbnail}
+              title={article.title}
+              footer={format(parseISO(article.createdAt), "MMMM ii, yyyy")}
+              description={article.description}
+            />
           ))}
         </div>
       )}

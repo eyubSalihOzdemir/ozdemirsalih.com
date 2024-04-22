@@ -7,44 +7,47 @@ import { IconSailboat } from "@tabler/icons-react";
 import { IconBookmarks } from "@tabler/icons-react";
 import SidebarButton from "./SidebarButton.tsx";
 import { useNavigate } from "react-router-dom";
+import SidebarTitle from "./SidebarTitle.tsx";
+SidebarTitle;
+import { IconTerminal2 } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 
 function Sidebar() {
+  const { t } = useTranslation();
   const { isSideBar, setIsSideBar } = useStateContext();
   const navigate = useNavigate();
 
   return (
     <div>
+      {/* outisde of sidebar */}
       <div
         className={
           isSideBar
-            ? "fixed h-full w-full cursor-pointer bg-black opacity-30 transition-all"
+            ? "fixed z-10 h-full w-full cursor-pointer bg-black opacity-30 transition-all"
             : "pointer-events-none fixed h-full w-full bg-black opacity-0 transition-all"
         }
         onClick={() => {
           setIsSideBar(false);
         }}
       ></div>
+      {/* sidebar itself */}
       <div
-        className={
-          isSideBar
-            ? "fixed left-0 top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:w-72"
-            : "fixed left-[-16rem] top-0 block h-full w-64 bg-white transition-all duration-300 ease-in-out dark:bg-dark-background md:left-[-18rem] md:w-72"
-        }
+        className={`fixed top-0 z-20 block h-full w-64 border-r-4 border-rose-400 bg-[#0F1111] transition-all duration-300 ease-in-out md:w-72 ${
+          isSideBar ? "left-0" : "left-[-16rem] md:left-[-18rem]"
+        }`}
       >
-        <div className="h-full flex-col divide-y-2 divide-divider bg-opacity-50 p-2">
+        <div className="mx-2 my-4 h-full">
           <SidebarButton
             icon={<IconHome2 />}
             onClick={() => {
               navigate("/");
               setIsSideBar(false);
             }}
-            text="Home"
-            isBig={true}
+            text={t("navbar.menuButtons.home")}
+            isBig={false}
           />
-          <div className="py-4">
-            <h1 className="start flex h-10 items-end pb-1 pl-2 text-xl font-semibold">
-              Blog
-            </h1>
+          <div className="mt-4">
+            <SidebarTitle text={t("navbar.menuButtons.blog")} />
             <SidebarButton
               icon={<IconWriting />}
               onClick={() => {
@@ -52,7 +55,7 @@ function Sidebar() {
                 setIsSideBar(false);
               }}
               text="Articles"
-              underDevelopment={true}
+              underDevelopment={false}
             />
             <SidebarButton
               icon={<IconSailboat />}
@@ -84,6 +87,25 @@ function Sidebar() {
                 console.log("Writing clicked");
               }}
               text="Bookmarks"
+              underDevelopment={true}
+            />
+          </div>
+          <div className="mt-4">
+            <SidebarTitle text={t("navbar.menuButtons.dev")} />
+            <SidebarButton
+              icon={<IconTerminal2 />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text={t("navbar.submenuButtons.projects")}
+              underDevelopment={true}
+            />
+            <SidebarButton
+              icon={<IconTerminal2 />}
+              onClick={() => {
+                console.log("Writing clicked");
+              }}
+              text={t("navbar.submenuButtons.shorts")}
               underDevelopment={true}
             />
           </div>

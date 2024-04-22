@@ -1,0 +1,59 @@
+{
+  "homepage": {
+    "title": {
+      "greetings": "Hello there!",
+      "myNameIs": "My name is <1>Salih</1>"
+    },
+    "introduction1": "I develop web & mobile apps. Learn more about my development experience <1>here.</1>",
+    "introduction2": "Discover my personal content on my <1>blog.</1>"
+  },
+  "aboutPage": {
+    "title": {
+      "aboutName": "About <1>Salih Ozdemir</1>",
+      "professional": "Professional Background"
+    },
+    "greetings": "Hello.",
+    "introduction1": "I studied Computer Science and began my career with mobile app development. Currently, I'm expanding my skills in web development, and this website is a live project reflecting my learning journey.",
+    "introduction2": "Originally from Turkey, I'm currently pursuing additional Computer Science courses at the University of Antwerp in Belgium.",
+    "introduction3": "Here, I'll be sharing a mix of personal and professional content, including projects, code samples, writings on various topics, stories, and notes.",
+    "professionalIntroduction1": "During my university days, navigating through multiple university websites daily was a challenge for students. To solve this problem -not just for myself but for everyone-, I developed a mobile app using Java (it was a popular technology for mobile development at the time), which proved successful and was well-received by users.",
+    "professionalIntroduction2": "I then transitioned to Flutter, where I created several mini-apps, one of which <2>(KeySMR)</2> garnered almost 10K downloads on the PlayStore. In my senior year, I worked for a robotics and software startup, utilizing Flutter to build an app for an IoT device employed in predictive maintenance for wind farms.",
+    "professionalIntroduction3": "Subsequently, I met with Swift & SwiftUI, and it was love at first sight. However, I found the framework, while brilliant, to be less mature at the time.",
+    "professionalIntroduction4": "After realizing the significance of web development for broadening my skills as a developer, I delved into this field as soon as I had the opportunity. This exploration ultimately led me to create the website you're currently browsing."
+  },
+  "articlesPage": {
+    "title": {
+      "articles": "Articles"
+    },
+    "error": {
+      "fetchingError": "Error fetching the articles."
+    },
+    "description": "Description for article page."
+  },
+  "navbar": {
+    "menuButtons": {
+      "home": "Home",
+      "blog": "Blog",
+      "dev": "Dev",
+      "about": "About"
+    },
+    "submenuButtons": {
+      "articles": "Articles",
+      "lifeUpdates": "Life Updates",
+      "photographs": "Photographs",
+      "videos": "Videos",
+      "bookmarks": "Bookmarks",
+      "projects": "Projects",
+      "shorts": "Shorts"
+    }
+  },
+  "notFound": {
+    "404": "404 Not Found",
+    "mainText": "This page might be feeling a little depressed. Let's give it a virtual hug and head back to the <1>Homepage!</1>",
+    "secondaryText": "Don't forget to check on your friends once in a while - you never know how much they might need you."
+  },
+  "languages": {
+    "en": "English",
+    "tr": "Turkish"
+  }
+}

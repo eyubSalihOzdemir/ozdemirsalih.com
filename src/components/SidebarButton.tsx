@@ -20,14 +20,21 @@ function SidebarButton({
   };
 
   return (
+    // h-${isBig ? "12" : "10"}
     <button
-      className={`${isBig && "mb-4"} flex h-${isBig ? "12" : "10"} w-full items-center justify-start gap-2 rounded-button p-2 hover:bg-secondary dark:hover:bg-dark-secondary ${
-        underDevelopment && "pointer-events-none text-black/30"
+      className={`${isBig && "mb-4"} flex w-full items-center justify-start ${
+        underDevelopment && "pointer-events-none text-white/30"
       }`}
       onClick={handleButtonClick}
     >
-      <div className={`[&>*]:size-${isBig ? "6" : "5"}`}>{icon}</div>
-      <h1 className="text-start">{text}</h1>
+      <div className={`${icon && "flex items-center gap-2 px-2 py-2"}`}>
+        {icon && (
+          <div className={`size-${isBig ? "6" : "5"} flex items-center`}>
+            {icon}
+          </div>
+        )}
+        <h1 className="text-starts">{text}</h1>
+      </div>
     </button>
   );
 }

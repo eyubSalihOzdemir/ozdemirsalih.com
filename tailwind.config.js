@@ -4,6 +4,11 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        Poppins: ["Poppins", "sans-serif"],
+        Inter: ["Inter", "sans-serif"],
+        Roboto: ["Roboto", "sans-serif"],
+      },
       borderRadius: {
         button: "8px",
       },
@@ -14,14 +19,22 @@ export default {
         accent: "#f26e59",
         secondary: "#B2B2B268",
         background: "#EDEDED",
-        divider: "#d1d1d1",
+        divider: "#d1d1d18",
         dark: {
           background: "#191919",
           secondary: "#262626",
           text: "#D1D1D1",
         },
       },
+      animation: {
+        gradient: "gradient 4s linear infinite",
+      },
+      keyframes: {
+        gradient: {
+          to: { "background-position": "200% center" },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };

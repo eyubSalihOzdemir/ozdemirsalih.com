@@ -4,7 +4,7 @@ import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
 
 function About() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { setActiveNavbarButton } = useStateContext();
 
   setActiveNavbarButton("about");

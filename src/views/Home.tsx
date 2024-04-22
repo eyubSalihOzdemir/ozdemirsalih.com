@@ -1,12 +1,11 @@
 import { IconBrandGithub } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "@tabler/icons-react";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
 
 function Home() {
   // const { isDarkMode } = useStateContext();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   // useEffect(() => {
   //   i18n.changeLanguage("tr");
   // });

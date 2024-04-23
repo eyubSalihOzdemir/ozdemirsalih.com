@@ -4,19 +4,23 @@ import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
 
 function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { setActiveNavbarButton } = useStateContext();
 
   setActiveNavbarButton("about");
 
   return (
     <div className="flex flex-col gap-10 pb-24 pt-24">
-      <div className="flex animate-fade-down whitespace-pre-wrap text-4xl font-medium animate-duration-500 animate-ease-out">
+      <div className="flex animate-fade-down text-4xl font-medium animate-duration-500 animate-ease-out">
         <Trans i18nKey={"aboutPage.title.aboutName"}>
-          <h1>About</h1>
-          <span className="animate-gradient bg-gradient-to-r from-rose-300 via-orange-300 to-rose-300 bg-[length:200%_auto] bg-clip-text font-medium text-transparent transition-all duration-500">
-            Salih Ozdemir
-          </span>
+          <div
+            className={`${i18n.language === "en" ? "line-clamp-1" : "line-clamp-2"}`}
+          >
+            <span>About</span>
+            <span className="duration-50 animate-gradient bg-gradient-to-r from-rose-300 via-orange-300 to-rose-300 bg-[length:200%_auto] bg-clip-text font-medium text-transparent transition-all">
+              Salih Ozdemir
+            </span>
+          </div>
         </Trans>
       </div>
 

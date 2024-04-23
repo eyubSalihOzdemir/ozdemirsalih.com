@@ -9,7 +9,7 @@
   },
   "aboutPage": {
     "title": {
-      "aboutName": "About <1>Salih Ozdemir</1>",
+      "aboutName": "About\u00a0<0><1>Salih Ozdemir</0></1>",
       "professional": "Professional Background"
     },
     "greetings": "Hello.",

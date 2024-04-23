@@ -1,5 +1,6 @@
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import { IconHome2 } from "@tabler/icons-react";
+import { IconUser } from "@tabler/icons-react";
 import { IconWriting } from "@tabler/icons-react";
 import { IconCamera } from "@tabler/icons-react";
 import { IconVideo } from "@tabler/icons-react";
@@ -46,6 +47,15 @@ function Sidebar() {
             text={t("navbar.menuButtons.home")}
             isBig={false}
           />
+          <SidebarButton
+            icon={<IconUser />}
+            onClick={() => {
+              navigate("/about");
+              setIsSideBar(false);
+            }}
+            text={t("navbar.menuButtons.about")}
+            isBig={false}
+          />
           <div className="mt-4">
             <SidebarTitle text={t("navbar.menuButtons.blog")} />
             <SidebarButton
@@ -54,7 +64,7 @@ function Sidebar() {
                 navigate("/articles");
                 setIsSideBar(false);
               }}
-              text="Articles"
+              text={t("navbar.submenuButtons.articles")}
               underDevelopment={false}
             />
             <SidebarButton
@@ -62,7 +72,7 @@ function Sidebar() {
               onClick={() => {
                 console.log("Article clicked");
               }}
-              text="Life Updates"
+              text={t("navbar.submenuButtons.lifeUpdates")}
               underDevelopment={true}
             />
             <SidebarButton
@@ -70,7 +80,7 @@ function Sidebar() {
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text="Photographs"
+              text={t("navbar.submenuButtons.photographs")}
               underDevelopment={true}
             />
             <SidebarButton
@@ -78,7 +88,7 @@ function Sidebar() {
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text="Videos"
+              text={t("navbar.submenuButtons.videos")}
               underDevelopment={true}
             />
             <SidebarButton
@@ -86,7 +96,7 @@ function Sidebar() {
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text="Bookmarks"
+              text={t("navbar.submenuButtons.bookmarks")}
               underDevelopment={true}
             />
           </div>

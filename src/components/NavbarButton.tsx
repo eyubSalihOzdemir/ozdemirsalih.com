@@ -38,18 +38,20 @@ function NavbarButton({
     >
       {/* className={`${icon && "flex items-center gap-1"}`} */}
       <div>
-        {icon && (
-          <div className={`flex size-5 items-center ${!text && "mx-2"}`}>
-            {icon}
-          </div>
-        )}
-        {text && (
-          <h1
-            className={`transition-all ${isSelected ? "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-transparent" : "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-white"} ${hoverItems && isHovered && "opacity-60"}`}
-          >
-            {text}
-          </h1>
-        )}
+        <div className="flex items-center gap-1">
+          {icon && (
+            <div className={`flex size-5 items-center ${!text && "mx-2"}`}>
+              {icon}
+            </div>
+          )}
+          {text && (
+            <h1
+              className={`transition-all ${isSelected ? "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-transparent" : "inline-block bg-gradient-to-r from-[#ef709b] to-[#fa9372] bg-clip-text text-white"} ${hoverItems && isHovered && "opacity-60"}`}
+            >
+              {text}
+            </h1>
+          )}
+        </div>
         {isHovered && hoverItems && (
           <NavbarMenu>
             {hoverItems.map((hoverItem, index) => (

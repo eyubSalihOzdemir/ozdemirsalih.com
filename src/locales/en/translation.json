@@ -32,6 +32,7 @@
   },
   "navbar": {
     "menuButtons": {
+      "menu": "Menu",
       "home": "Home",
       "blog": "Blog",
       "dev": "Dev",

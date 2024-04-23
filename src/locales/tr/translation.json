@@ -2,7 +2,7 @@
   "homepage": {
     "title": {
       "greetings": "Selam!",
-      "myNameIs": "Ben <1>Salih</1>"
+      "myNameIs": "Benim adım <1>Salih</1>"
     },
     "introduction1": "Web ve mobil uygulamaları geliştiriyorum. Geliştirme tecrübem hakkında daha fazla bilgiyi <1>buradan</1> öğrenebilirsiniz.",
     "introduction2": "Kişisel içeriklerimi <1>blogumda</1> keşfedin."
@@ -32,6 +32,7 @@
   },
   "navbar": {
     "menuButtons": {
+      "menu": "Menü",
       "home": "Anasayfa",
       "blog": "Blog",
       "dev": "Geliştirici",

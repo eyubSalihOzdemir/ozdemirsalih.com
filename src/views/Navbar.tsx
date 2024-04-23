@@ -6,7 +6,7 @@ import {
   IconVideo,
   IconBookmarks,
   IconClipboardText,
-  IconCpu2,
+  IconNote,
   IconLanguage,
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
@@ -14,8 +14,9 @@ import { IconSun } from "@tabler/icons-react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
-import Sidebar from "../components/Sidebar.tsx";
+import Sidebar from "./Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
+import IconButton from "../components/IconButton.tsx";
 import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
 import FlagEN from "../components/FlagEN.tsx";
@@ -94,7 +95,7 @@ function Navbar() {
           <div>
             <NavbarButton
               icon={<IconMenu2 />}
-              text="Menu"
+              text={t("navbar.menuButtons.menu")}
               onClick={() => handleSidebar()}
               isSelected={false}
             />
@@ -158,7 +159,7 @@ function Navbar() {
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
-                    <IconCpu2 className="size-5" />
+                    <IconNote className="size-5" />
                     {t("navbar.submenuButtons.shorts")}
                   </div>
                 </button>,
@@ -172,16 +173,16 @@ function Navbar() {
           </div>
         )}
         <div className="flex">
-          <NavbarButton
+          {/* theme change button */}
+          <IconButton
             icon={isDarkMode ? <IconSun /> : <IconMoon />}
             // onClick={() => themeSwitch()}
             onClick={() => {}}
-            isSelected={false}
           />
-          <NavbarButton
+          {/* language change button */}
+          <IconButton
             icon={<IconLanguage />}
             onClick={() => {}}
-            isSelected={false}
             hoverItems={[
               <button
                 onClick={() => {

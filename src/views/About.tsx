@@ -11,7 +11,7 @@ function About() {
 
   return (
     <div className="flex flex-col gap-10 pb-24 pt-24">
-      <div className="flex animate-fade-down text-4xl font-medium animate-duration-500 animate-ease-out">
+      <div className="flex animate-fade-down text-4xl font-medium animate-duration-500  animate-ease-out">
         <Trans i18nKey={"aboutPage.title.aboutName"}>
           <div
             className={`${i18n.language === "en" ? "line-clamp-1" : "line-clamp-2"}`}
@@ -40,7 +40,10 @@ function About() {
         <p>{t("aboutPage.introduction3")}</p>
       </div>
 
-      <div className="animate-fade-down space-y-4 animate-delay-200 animate-duration-500 animate-ease-out">
+      <hr className="h-px animate-fade-down border-0 bg-gray-200 animate-delay-200 animate-duration-500 animate-ease-out dark:bg-gray-700" />
+
+      {/* Professional Background */}
+      <div className="animate-fade-down space-y-4 animate-delay-300 animate-duration-500 animate-ease-out">
         <div className="flex text-xl font-medium">
           {t("aboutPage.title.professional")}
         </div>
@@ -66,16 +69,7 @@ function About() {
           <p>{t("aboutPage.professionalIntroduction3")}</p>
           <p>{t("aboutPage.professionalIntroduction4")}</p>
         </div>
-        <div className="flex animate-fade-down gap-6 font-light text-gray-400 animate-delay-300 animate-duration-500 animate-ease-out">
-          <a
-            href="https://github.com/eyubSalihOzdemir"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="flex gap-1 p-1 transition-transform hover:scale-105"
-          >
-            <IconBrandGithub></IconBrandGithub>
-            <h1>GitHub</h1>
-          </a>
+        <div className="flex animate-fade-down gap-6 font-light text-gray-400 animate-delay-[400ms] animate-duration-500 animate-ease-out">
           <a
             href="https://www.linkedin.com/in/eyubsalihozdemir/"
             rel="noopener noreferrer"
@@ -84,6 +78,15 @@ function About() {
           >
             <IconBrandLinkedin></IconBrandLinkedin>
             <h1>LinkedIn</h1>
+          </a>
+          <a
+            href="https://github.com/eyubSalihOzdemir"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex gap-1 p-1 transition-transform hover:scale-105"
+          >
+            <IconBrandGithub></IconBrandGithub>
+            <h1>GitHub</h1>
           </a>
         </div>
       </div>

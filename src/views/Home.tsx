@@ -49,15 +49,6 @@ function Home() {
         </div>
         <div className="flex animate-fade-down gap-6 pt-4 font-light text-gray-400 animate-delay-[400ms] animate-duration-500 animate-ease-out">
           <a
-            href="https://github.com/eyubSalihOzdemir"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="flex gap-1 p-1 transition-transform hover:scale-105"
-          >
-            <IconBrandGithub></IconBrandGithub>
-            <h1>GitHub</h1>
-          </a>
-          <a
             href="https://www.linkedin.com/in/eyubsalihozdemir/"
             rel="noopener noreferrer"
             target="_blank"
@@ -65,6 +56,15 @@ function Home() {
           >
             <IconBrandLinkedin></IconBrandLinkedin>
             <h1>LinkedIn</h1>
+          </a>
+          <a
+            href="https://github.com/eyubSalihOzdemir"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex gap-1 p-1 transition-transform hover:scale-105"
+          >
+            <IconBrandGithub></IconBrandGithub>
+            <h1>GitHub</h1>
           </a>
         </div>
 

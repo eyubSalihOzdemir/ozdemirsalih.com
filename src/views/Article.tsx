@@ -48,6 +48,7 @@ function Article() {
         const articleResponse = await axios.get(
           `http://127.0.0.1:8000/api/v1/articles/${id}`,
         );
+        console.log(articleResponse.data.data.bodyMdFilepath);
         const mdDataResponse = await axios.get(
           articleResponse.data.data.bodyMdFilepath,
         );
@@ -66,7 +67,7 @@ function Article() {
   }, []);
 
   return (
-    <div className="flex h-max flex-col pb-24 pt-24">
+    <div className="flex h-max pb-24 pt-24">
       {isLoading ? (
         <div className="flex h-full items-center justify-center ">
           <h1 className=" animate-fade-down animate-delay-200 animate-duration-500 animate-ease-out">

@@ -69,20 +69,28 @@ function Articles() {
             </div>
           ) : (
             <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article, index) => (
-                <Link to={`/articles/${article.id}`}>
-                  <Card
-                    key={index}
-                    thumbnail={article.thumbnail}
-                    title={article.title}
-                    footer={format(
-                      parseISO(article.createdAt),
-                      "MMMM ii, yyyy",
-                    )}
-                    description={article.description}
-                  />
-                </Link>
-              ))}
+              {articles.length ? (
+                <>
+                  {articles.map((article, index) => (
+                    <Link to={`/articles/${article.id}`}>
+                      <Card
+                        key={index}
+                        thumbnail={article.thumbnail}
+                        title={article.title}
+                        footer={format(
+                          parseISO(article.createdAt),
+                          "MMMM ii, yyyy",
+                        )}
+                        description={article.description}
+                      />
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <span className="flex animate-fade-down font-light animate-delay-200 animate-duration-500 animate-ease-out">
+                  {t("articlesPage.noArticles")}
+                </span>
+              )}
             </div>
           )}
         </>

@@ -28,7 +28,8 @@
     "error": {
       "fetchingError": "Yazılar getirilirken hata oluştu."
     },
-    "description": "Yazı sayfası için açıklama."
+    "description": "Yazı sayfası için açıklama.",
+    "noArticles": "Henüz bir yazı yok."
   },
   "navbar": {
     "menuButtons": {

@@ -28,7 +28,8 @@
     "error": {
       "fetchingError": "Error fetching the articles."
     },
-    "description": "Description for article page."
+    "description": "Description for article page.",
+    "noArticles": "There are no articles yet."
   },
   "navbar": {
     "menuButtons": {

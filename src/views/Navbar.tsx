@@ -7,7 +7,7 @@ import {
   IconBookmarks,
   IconClipboardText,
   IconNote,
-  IconLanguage,
+  IconWorld,
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
@@ -89,7 +89,7 @@ function Navbar() {
   return (
     <div className="dark h-screen font-Roboto text-white transition-all">
       {width < breakpoint && <Sidebar />}
-      <div className="border-divide mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between px-6">
+      <div className="border-divide sticky top-0 z-10 mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between bg-[#0f1111] px-6">
         {width < breakpoint ? (
           // mobile layout, show menu button and a sidebar
           <div>
@@ -151,16 +151,16 @@ function Navbar() {
               onClick={() => {}}
               isSelected={activeSidebarButton === "dev"}
               hoverItems={[
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconClipboardText className="size-5" />
-                    {t("navbar.submenuButtons.projects")}
+                <button onClick={() => handleNavbarButton("shorts", "dev")}>
+                  <div className="flex gap-2">
+                    <IconNote className="size-5" />
+                    {t("navbar.submenuButtons.shorts")}
                   </div>
                 </button>,
                 <button disabled onClick={() => {}}>
                   <div className="flex gap-2 text-gray-500">
-                    <IconNote className="size-5" />
-                    {t("navbar.submenuButtons.shorts")}
+                    <IconClipboardText className="size-5" />
+                    {t("navbar.submenuButtons.projects")}
                   </div>
                 </button>,
               ]}
@@ -174,14 +174,16 @@ function Navbar() {
         )}
         <div className="flex">
           {/* theme change button */}
-          <IconButton
-            icon={isDarkMode ? <IconSun /> : <IconMoon />}
-            // onClick={() => themeSwitch()}
-            onClick={() => {}}
-          />
+          <div className="hidden">
+            <IconButton
+              icon={isDarkMode ? <IconSun /> : <IconMoon />}
+              // onClick={() => themeSwitch()}
+              onClick={() => {}}
+            />
+          </div>
           {/* language change button */}
           <IconButton
-            icon={<IconLanguage />}
+            icon={<IconWorld />}
             onClick={() => {}}
             hoverItems={[
               <button

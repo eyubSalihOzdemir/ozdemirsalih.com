@@ -1,37 +1,34 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
 import { useStateContext } from "../contexts/ContextProvider";
 import axios from "axios";
-import { format, parseISO } from "date-fns";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { IconLoader2 } from "@tabler/icons-react";
+import { format, parseISO } from "date-fns";
+import { Link } from "react-router-dom";
+import CompactCard from "../components/CompactCard";
 
-interface Article {
+interface Short {
   id: number;
   title: string;
   body: string;
   createdAt: string;
   updatedAt: string;
   description: string;
-  thumbnail: string;
 }
 
-function Articles() {
-  const { t } = useTranslation();
-  const [articles, setArticles] = useState<Article[]>([]);
+function Shorts() {
+  const [shorts, setShorts] = useState<Short[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { setActiveNavbarButton } = useStateContext();
-  setActiveNavbarButton("blog");
+  setActiveNavbarButton("dev");
 
   useEffect(() => {
-    const fetchArticles = () => {
+    const fetchShorts = () => {
       axios
-        .get("http://127.0.0.1:8000/api/v1/articles")
+        .get("http://127.0.0.1:8000/api/v1/shorts")
         .then(({ data }) => {
           // console.log(data.data);
-          setArticles(data.data);
+          setShorts(data.data);
           setIsLoading(false);
         })
         .catch((errors) => {
@@ -41,16 +38,16 @@ function Articles() {
         });
     };
 
-    fetchArticles();
+    fetchShorts();
   }, []);
 
   return (
     <div className="flex h-max flex-col pb-24 pt-24">
       <h1 className="animate-fade-down pb-2 text-4xl font-medium animate-duration-500 animate-ease-out">
-        {t("articlesPage.title.articles")}
+        Shorts
       </h1>
       <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
-        {t("articlesPage.description")}
+        Description for shorts page.
       </span>
 
       {isLoading ? (
@@ -64,31 +61,30 @@ function Articles() {
           {isError ? (
             <div className="flex h-full items-center justify-center ">
               <h1 className="animate-fade-down animate-delay-200 animate-duration-500 animate-ease-out">
-                {t("articlesPage.error.fetchingError")}
+                There is a fetching error
               </h1>
             </div>
           ) : (
             <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
-              {articles.length ? (
+              {shorts.length ? (
                 <>
-                  {articles.map((article, index) => (
-                    <Link to={`/articles/${article.id}`}>
-                      <Card
+                  {shorts.map((short, index) => (
+                    <Link to={`/shorts/${short.id}`}>
+                      <CompactCard
                         key={index}
-                        thumbnail={article.thumbnail}
-                        title={article.title}
+                        title={short.title}
                         footer={format(
-                          parseISO(article.createdAt),
+                          parseISO(short.createdAt),
                           "MMMM ii, yyyy",
                         )}
-                        description={article.description}
-                      />
+                        description={short.description}
+                      ></CompactCard>
                     </Link>
                   ))}
                 </>
               ) : (
                 <span className="flex animate-fade-down font-light animate-delay-200 animate-duration-500 animate-ease-out">
-                  {t("articlesPage.noArticles")}
+                  There are no shorts
                 </span>
               )}
             </div>
@@ -99,4 +95,4 @@ function Articles() {
   );
 }
 
-export default Articles;
+export default Shorts;

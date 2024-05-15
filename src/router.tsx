@@ -5,6 +5,8 @@ import NotFound from "./views/NotFound";
 import About from "./views/About";
 import Articles from "./views/Articles";
 import Article from "./views/Article";
+import Shorts from "./views/Shorts";
+import Short from "./views/Short";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/articles/:id",
         element: <Article />,
+      },
+      {
+        path: "/shorts",
+        element: <Shorts />,
+      },
+      {
+        path: "/shorts/:id",
+        element: <Short />,
       },
       {
         path: "/about",

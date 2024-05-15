@@ -2,10 +2,12 @@ import { IconBrandGithub } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   // const { isDarkMode } = useStateContext();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   // useEffect(() => {
   //   i18n.changeLanguage("tr");
   // });
@@ -34,7 +36,10 @@ function Home() {
               I develop web & mobile apps. Learn more about my development
               experience&nbsp;
             </span>
-            <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
+            <button
+              onClick={() => navigate("/projects")}
+              className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400"
+            >
               here.
             </button>
           </Trans>
@@ -42,7 +47,10 @@ function Home() {
         <div className="flex-rows-1 animate-fade-down pt-4 text-xl font-light animate-delay-300 animate-duration-500 animate-ease-out">
           <Trans i18nKey="homepage.introduction2">
             <span>Discover my personal content on my&nbsp;</span>
-            <button className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400">
+            <button
+              onClick={() => navigate("/articles")}
+              className="font-medium text-rose-300 transition-colors hover:animate-wiggle hover:text-orange-400"
+            >
               blog.
             </button>
           </Trans>

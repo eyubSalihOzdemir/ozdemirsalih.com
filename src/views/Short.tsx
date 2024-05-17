@@ -1,13 +1,15 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { parseISO, format } from "date-fns";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { duotoneSpace as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IconLoader2 } from "@tabler/icons-react";
+import Markdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import SyntaxHighlighter from "react-syntax-highlighter";
+// import { atelierLakesideDark as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import remarkGfm from "remark-gfm";
 
 interface Short {
   id: number;
@@ -99,13 +101,29 @@ function Short() {
                     code({ node, className, children, ...props }: CodeProps) {
                       const match = /language-(\w+)/.exec(className || "");
                       return match ? (
-                        <SyntaxHighlighter
-                          children={String(children).replace(/\n$/, "")}
-                          PreTag="div"
-                          language={match[1]}
-                          style={highlightStyle}
-                          {...props}
-                        />
+                        <div className="">
+                          <SyntaxHighlighter
+                            children={String(children).replace(/\n$/, "")}
+                            PreTag="div"
+                            language={match[1]}
+                            style={highlightStyle}
+                            wrapLongLines
+                            showLineNumbers
+                            codeTagProps={{
+                              style: {
+                                fontSize: "inherit",
+                                lineHeight: "inherit",
+                                fontFamily: "Ubuntu Mono",
+                              },
+                            }}
+                            customStyle={{
+                              lineHeight: 1.4,
+                              borderRadius: "12px",
+                              background: "#25292e",
+                            }}
+                            {...props}
+                          />
+                        </div>
                       ) : (
                         <code {...props} className={className}>
                           {children}
@@ -115,7 +133,7 @@ function Short() {
                     a: (props) => {
                       return (
                         <a
-                          className="text-orange-500 underline"
+                          className="text-orange-400 underline"
                           href={props.href}
                         >
                           {props.children}

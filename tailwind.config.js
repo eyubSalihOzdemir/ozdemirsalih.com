@@ -8,6 +8,7 @@ export default {
         Poppins: ["Poppins", "sans-serif"],
         Inter: ["Inter", "sans-serif"],
         Roboto: ["Roboto", "sans-serif"],
+        Ubunutu: ["Ubuntu Mono", "sans-serif"],
       },
       borderRadius: {
         button: "8px",

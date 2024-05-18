@@ -26,10 +26,30 @@
       "articles": "Articles"
     },
     "error": {
-      "fetchingError": "Error fetching the articles."
+      "fetchingError": "There was an error fetching articles."
     },
-    "description": "Description for article page.",
+    "description": "Description for articles page.",
     "noArticles": "There are no articles yet."
+  },
+  "shortsPage": {
+    "title": {
+      "shorts": "Shorts"
+    },
+    "error": {
+      "fetchingError": "There was an error fetching shorts."
+    },
+    "description": "Description for shorts page.",
+    "noShorts": "There are no shorts yet."
+  },
+  "articlePage": {
+    "error": {
+      "fetchingError": "There was an error fetching the article."
+    }
+  },
+  "shortPage": {
+    "error": {
+      "fetchingError": "There was an error fetching the short."
+    }
   },
   "navbar": {
     "menuButtons": {

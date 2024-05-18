@@ -28,8 +28,28 @@
     "error": {
       "fetchingError": "Yazılar getirilirken hata oluştu."
     },
-    "description": "Yazı sayfası için açıklama.",
+    "description": "Yazılar sayfası için açıklama.",
     "noArticles": "Henüz bir yazı yok."
+  },
+  "shortsPage": {
+    "title": {
+      "shorts": "Notlar"
+    },
+    "error": {
+      "fetchingError": "Notlar getirilirken hata oluştu."
+    },
+    "description": "Notlar sayfası için açıklama.",
+    "noShorts": "Henüz bir not yok."
+  },
+  "articlePage": {
+    "error": {
+      "fetchingError": "There was an error fetching the article."
+    }
+  },
+  "shortPage": {
+    "error": {
+      "fetchingError": "Not getirilirken hata oluştu."
+    }
   },
   "navbar": {
     "menuButtons": {
@@ -46,7 +66,7 @@
       "videos": "Videolar",
       "bookmarks": "Favoriler",
       "projects": "Projeler",
-      "shorts": "Kısa İçerikler"
+      "shorts": "Notlar"
     }
   },
   "notFound": {

@@ -5,6 +5,7 @@ import { IconLoader2 } from "@tabler/icons-react";
 import { format, parseISO } from "date-fns";
 import { Link } from "react-router-dom";
 import CompactCard from "../components/CompactCard";
+import { useTranslation } from "react-i18next";
 
 interface Short {
   id: number;
@@ -16,6 +17,7 @@ interface Short {
 }
 
 function Shorts() {
+  const { t } = useTranslation();
   const [shorts, setShorts] = useState<Short[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,10 +46,10 @@ function Shorts() {
   return (
     <div className="flex h-max flex-col pb-24 pt-24">
       <h1 className="animate-fade-down pb-2 text-4xl font-medium animate-duration-500 animate-ease-out">
-        Shorts
+        {t("shortsPage.title.shorts")}
       </h1>
       <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
-        Description for shorts page.
+        {t("shortsPage.description")}
       </span>
 
       {isLoading ? (
@@ -61,7 +63,7 @@ function Shorts() {
           {isError ? (
             <div className="flex h-full items-center justify-center ">
               <h1 className="animate-fade-down animate-delay-200 animate-duration-500 animate-ease-out">
-                There is a fetching error
+                {t("shortsPage.error.fetchingError")}
               </h1>
             </div>
           ) : (
@@ -75,7 +77,7 @@ function Shorts() {
                         title={short.title}
                         footer={format(
                           parseISO(short.createdAt),
-                          "MMMM ii, yyyy",
+                          "dd MMMM yyyy",
                         )}
                         description={short.description}
                       ></CompactCard>
@@ -84,7 +86,7 @@ function Shorts() {
                 </>
               ) : (
                 <span className="flex animate-fade-down font-light animate-delay-200 animate-duration-500 animate-ease-out">
-                  There are no shorts
+                  {t("shortsPage.noShorts")}
                 </span>
               )}
             </div>

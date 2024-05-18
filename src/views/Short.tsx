@@ -2,14 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useParams } from "react-router-dom";
-import { parseISO, format } from "date-fns";
-import { IconLoader2 } from "@tabler/icons-react";
+// import { parseISO, format } from "date-fns";
+import { IconLoader2, IconCopy, IconCopyCheck } from "@tabler/icons-react";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
 // import SyntaxHighlighter from "react-syntax-highlighter";
 // import { atelierLakesideDark as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import remarkGfm from "remark-gfm";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 interface Short {
   id: number;
@@ -35,6 +36,9 @@ function Short() {
   const [markdownContent, setMarkdownContent] = useState<string | null>(null);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [copiedCodeBlocks, setCopiedCodeBlocks] = useState<{
+    [key: number]: boolean;
+  }>({});
 
   const { id } = useParams<{ id: string }>();
 
@@ -61,6 +65,13 @@ function Short() {
 
     fetchShort();
   }, []);
+
+  const handleCopy = (index: number) => {
+    setCopiedCodeBlocks((prev) => ({ ...prev, [index]: true }));
+    setTimeout(() => {
+      setCopiedCodeBlocks((prev) => ({ ...prev, [index]: false }));
+    }, 2000); // reset after 2 seconds
+  };
 
   return (
     <div className="flex h-max flex-col pb-24 pt-24">
@@ -89,9 +100,9 @@ function Short() {
               <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
                 {short.description}
               </span>
-              <span className="animate-fade-down pt-4 font-light animate-delay-200 animate-duration-500 animate-ease-out">
+              {/* <span className="animate-fade-down pt-4 font-light animate-delay-200 animate-duration-500 animate-ease-out">
                 {format(parseISO(short.createdAt), "dd MMMM yyyy")}
-              </span>
+              </span> */}
               <div className="animate-fade-down pt-8 font-light animate-delay-300 animate-duration-500 animate-ease-out">
                 <Markdown
                   className="markdown"
@@ -99,33 +110,62 @@ function Short() {
                   remarkPlugins={[remarkGfm]}
                   components={{
                     code({ node, className, children, ...props }: CodeProps) {
+                      const index = node.position.start.offset;
                       const match = /language-(\w+)/.exec(className || "");
                       return match ? (
-                        <div className="">
+                        <div className="relative">
+                          <button className="absolute right-2 top-2">
+                            <CopyToClipboard
+                              text={children}
+                              onCopy={() => {
+                                handleCopy(index);
+                              }}
+                            >
+                              <div
+                                className={
+                                  copiedCodeBlocks[index] ? "animate-jump" : ""
+                                }
+                              >
+                                {copiedCodeBlocks[index] ? (
+                                  <IconCopyCheck />
+                                ) : (
+                                  <IconCopy />
+                                )}
+                              </div>
+                            </CopyToClipboard>
+                          </button>
                           <SyntaxHighlighter
                             children={String(children).replace(/\n$/, "")}
                             PreTag="div"
                             language={match[1]}
                             style={highlightStyle}
-                            wrapLongLines
-                            showLineNumbers
+                            // showLineNumbers={true}
                             codeTagProps={{
                               style: {
                                 fontSize: "inherit",
                                 lineHeight: "inherit",
                                 fontFamily: "Ubuntu Mono",
+                                background: "inherit",
                               },
                             }}
                             customStyle={{
-                              lineHeight: 1.4,
-                              borderRadius: "12px",
+                              // lineHeight: 1.4,
+                              borderRadius: "10px",
                               background: "#25292e",
+                              // paddingLeft: 0,
                             }}
                             {...props}
                           />
                         </div>
                       ) : (
-                        <code {...props} className={className}>
+                        // <span className="font-Ubuntu">
+
+                        // </span>
+                        <code
+                          {...props}
+                          style={{ fontFamily: "Ubuntu Mono" }}
+                          className={className}
+                        >
                           {children}
                         </code>
                       );

@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { duotoneSpace as highlightStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IconLoader2 } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
 
 interface Article {
   id: number;
@@ -32,6 +33,7 @@ function Article() {
   const { setActiveNavbarButton } = useStateContext();
   setActiveNavbarButton("blog");
 
+  const { t } = useTranslation();
   const [article, setArticle] = useState<Article | null>(null);
   const [markdownContent, setMarkdownContent] = useState<string | null>(null);
   const [isError, setIsError] = useState(false);
@@ -82,7 +84,7 @@ function Article() {
                 Oops..
               </h1>
               <span className="animate-fade-down font-light animate-delay-100 animate-duration-500 animate-ease-out">
-                There was an error while fetching the article.
+                {t("articlePage.error.fetchingError")}
               </span>
             </>
           ) : (

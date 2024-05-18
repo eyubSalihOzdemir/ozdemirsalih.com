@@ -20,6 +20,7 @@ import IconButton from "../components/IconButton.tsx";
 import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
 import FlagEN from "../components/FlagEN.tsx";
+import Footer from "../components/Footer.tsx";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -220,9 +221,13 @@ function Navbar() {
       </div>
       {/* h-[calc(100vh-80px)] */}
       {/* min-h-[calc(100vh-80px)] */}
-      <div className="mx-auto h-[calc(100vh-80px)] max-w-[1440px]">
+      {/* h-[calc(100vh-80px)] */}
+      <div className="mx-auto h-full max-w-[1440px]">
         <div className="mx-6 h-full max-h-max flex-1">
           <Outlet />
+        </div>
+        <div className="mx-6">
+          <Footer />
         </div>
       </div>
     </div>

@@ -107,15 +107,15 @@ function Sidebar() {
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text={t("navbar.submenuButtons.projects")}
-              underDevelopment={true}
+              text={t("navbar.submenuButtons.shorts")}
+              underDevelopment={false}
             />
             <SidebarButton
               icon={<IconTerminal2 />}
               onClick={() => {
                 console.log("Writing clicked");
               }}
-              text={t("navbar.submenuButtons.shorts")}
+              text={t("navbar.submenuButtons.projects")}
               underDevelopment={true}
             />
           </div>

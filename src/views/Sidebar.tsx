@@ -105,7 +105,8 @@ function Sidebar() {
             <SidebarButton
               icon={<IconTerminal2 />}
               onClick={() => {
-                console.log("Writing clicked");
+                navigate("/shorts");
+                setIsSideBar(false);
               }}
               text={t("navbar.submenuButtons.shorts")}
               underDevelopment={false}

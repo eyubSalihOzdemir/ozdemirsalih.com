@@ -28,7 +28,9 @@ function Articles() {
   useEffect(() => {
     const fetchArticles = () => {
       axios
-        .get("http://127.0.0.1:8000/api/v1/articles")
+        .get(
+          `https://com-ozdemirsalih-fe4d08d34b2e.herokuapp.com/api/v1/articles`,
+        )
         .then(({ data }) => {
           // console.log(data.data);
           setArticles(data.data);

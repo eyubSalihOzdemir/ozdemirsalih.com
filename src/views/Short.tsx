@@ -46,7 +46,7 @@ function Short() {
     const fetchShort = async () => {
       try {
         const shortResponse = await axios.get(
-          `http://127.0.0.1:8000/api/v1/shorts/${id}`,
+          `https://com-ozdemirsalih-fe4d08d34b2e.herokuapp.com/api/v1/shorts/${id}`,
         );
         console.log(shortResponse.data.data.bodyMdFilepath);
         const mdDataResponse = await axios.get(

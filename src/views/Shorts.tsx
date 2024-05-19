@@ -23,11 +23,14 @@ function Shorts() {
   const [isLoading, setIsLoading] = useState(true);
   const { setActiveNavbarButton } = useStateContext();
   setActiveNavbarButton("dev");
-
+  // https://com-ozdemirsalih-fe4d08d34b2e.herokuapp.com
+  // http://127.0.0.1:8000
   useEffect(() => {
     const fetchShorts = () => {
       axios
-        .get("http://127.0.0.1:8000/api/v1/shorts")
+        .get(
+          "https://com-ozdemirsalih-fe4d08d34b2e.herokuapp.com/api/v1/shorts",
+        )
         .then(({ data }) => {
           // console.log(data.data);
           setShorts(data.data);

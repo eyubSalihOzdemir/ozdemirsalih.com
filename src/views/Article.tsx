@@ -48,7 +48,7 @@ function Article() {
     const fetchArticle = async () => {
       try {
         const articleResponse = await axios.get(
-          `http://127.0.0.1:8000/api/v1/articles/${id}`,
+          `https://com-ozdemirsalih-fe4d08d34b2e.herokuapp.com/api/v1/articles/${id}`,
         );
         console.log(articleResponse.data.data.bodyMdFilepath);
         const mdDataResponse = await axios.get(

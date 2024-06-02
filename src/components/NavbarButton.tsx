@@ -55,13 +55,8 @@ function NavbarButton({
         {isHovered && hoverItems && (
           <NavbarMenu>
             {hoverItems.map((hoverItem, index) => (
-              <div key={index}>
-                <button
-                  className="w-full text-start transition-all"
-                  onClick={() => setIsHovered(false)}
-                >
-                  {hoverItem}
-                </button>
+              <div onClick={() => setIsHovered(false)} key={index}>
+                {hoverItem}
               </div>
             ))}
           </NavbarMenu>

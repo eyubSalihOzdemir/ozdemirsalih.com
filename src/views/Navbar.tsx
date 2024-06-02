@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
 import FlagEN from "../components/FlagEN.tsx";
 import Footer from "../components/Footer.tsx";
+import NavbarMenuItem from "../components/NavbarMenuItem.tsx";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -114,37 +115,35 @@ function Navbar() {
               onClick={() => {}}
               isSelected={activeSidebarButton === "blog"}
               hoverItems={[
-                <div
-                  className="flex gap-2"
+                <NavbarMenuItem
+                  icon={<IconWriting className="size-5" />}
+                  text={t("navbar.submenuButtons.articles")}
                   onClick={() => handleNavbarButton("articles", "blog")}
-                >
-                  <IconWriting className="size-5" />
-                  {t("navbar.submenuButtons.articles")}
-                </div>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconSailboat className="size-5" />
-                    {t("navbar.submenuButtons.lifeUpdates")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconCamera className="size-5" />
-                    {t("navbar.submenuButtons.photographs")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconVideo className="size-5" />
-                    {t("navbar.submenuButtons.videos")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconBookmarks className="size-5" />
-                    {t("navbar.submenuButtons.bookmarks")}
-                  </div>
-                </button>,
+                />,
+                <NavbarMenuItem
+                  icon={<IconSailboat className="size-5" />}
+                  text={t("navbar.submenuButtons.lifeUpdates")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconCamera className="size-5" />}
+                  text={t("navbar.submenuButtons.photographs")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconVideo className="size-5" />}
+                  text={t("navbar.submenuButtons.videos")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconBookmarks className="size-5" />}
+                  text={t("navbar.submenuButtons.bookmarks")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
               ]}
             />
             <NavbarButton

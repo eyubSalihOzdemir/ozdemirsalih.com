@@ -17,20 +17,16 @@ function NavbarButton({
   hoverItems,
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
-  let timeoutId: NodeJS.Timeout;
 
   const handleButtonClick = () => {
     onClick();
   };
   const handleMouseEnter = () => {
-    clearTimeout(timeoutId);
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
-      setIsHovered(false);
-    }, 200);
+    setIsHovered(false);
   };
 
   return (

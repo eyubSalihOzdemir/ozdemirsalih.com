@@ -38,7 +38,7 @@
     "error": {
       "fetchingError": "There was an error fetching shorts."
     },
-    "description": "Description for shorts page.",
+    "description": "I'm writing these shorts to teach, explain and/or remind myself some of the concepts that I came across and use.",
     "noShorts": "There are no shorts yet."
   },
   "articlePage": {

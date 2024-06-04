@@ -11,16 +11,17 @@ import {
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import Sidebar from "./Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
-import IconButton from "../components/IconButton.tsx";
+import NavbarIconButton from "../components/NavbarIconButton.tsx";
 import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
 import FlagEN from "../components/FlagEN.tsx";
 import Footer from "../components/Footer.tsx";
+import NavbarMenuItem from "../components/NavbarMenuItem.tsx";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -64,6 +65,11 @@ function Navbar() {
     setActiveNavbarButton: setActiveSidebarButton,
   } = useStateContext();
   const navigate = useNavigate();
+  const { pathname } = useLocation(); // Get the current location
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top whenever the path changes
+  }, [pathname]);
 
   // setIsDarkMode(checkTheme());
 
@@ -88,7 +94,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="dark h-screen font-Roboto text-white transition-all">
+    <div className="dark h-max flex-col font-Roboto text-white transition-all">
       {width < breakpoint && <Sidebar />}
       <div className="border-divide sticky top-0 z-10 mx-auto mb-4 flex h-16 max-w-[1440px] items-center justify-between bg-[#0f1111] px-6">
         {width < breakpoint ? (
@@ -114,37 +120,35 @@ function Navbar() {
               onClick={() => {}}
               isSelected={activeSidebarButton === "blog"}
               hoverItems={[
-                <div
-                  className="flex gap-2"
+                <NavbarMenuItem
+                  icon={<IconWriting className="size-5" />}
+                  text={t("navbar.submenuButtons.articles")}
                   onClick={() => handleNavbarButton("articles", "blog")}
-                >
-                  <IconWriting className="size-5" />
-                  {t("navbar.submenuButtons.articles")}
-                </div>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconSailboat className="size-5" />
-                    {t("navbar.submenuButtons.lifeUpdates")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconCamera className="size-5" />
-                    {t("navbar.submenuButtons.photographs")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconVideo className="size-5" />
-                    {t("navbar.submenuButtons.videos")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconBookmarks className="size-5" />
-                    {t("navbar.submenuButtons.bookmarks")}
-                  </div>
-                </button>,
+                />,
+                <NavbarMenuItem
+                  icon={<IconSailboat className="size-5" />}
+                  text={t("navbar.submenuButtons.lifeUpdates")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconCamera className="size-5" />}
+                  text={t("navbar.submenuButtons.photographs")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconVideo className="size-5" />}
+                  text={t("navbar.submenuButtons.videos")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
+                <NavbarMenuItem
+                  icon={<IconBookmarks className="size-5" />}
+                  text={t("navbar.submenuButtons.bookmarks")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
               ]}
             />
             <NavbarButton
@@ -176,14 +180,14 @@ function Navbar() {
         <div className="flex">
           {/* theme change button */}
           <div className="hidden">
-            <IconButton
+            <NavbarIconButton
               icon={isDarkMode ? <IconSun /> : <IconMoon />}
               // onClick={() => themeSwitch()}
               onClick={() => {}}
             />
           </div>
           {/* language change button */}
-          <IconButton
+          <NavbarIconButton
             icon={<IconWorld />}
             onClick={() => {}}
             hoverItems={[
@@ -222,13 +226,13 @@ function Navbar() {
       {/* h-[calc(100vh-80px)] */}
       {/* min-h-[calc(100vh-80px)] */}
       {/* h-[calc(100vh-80px)] */}
-      <div className="mx-auto h-full max-w-[1440px]">
+      <div className="mx-auto h-full min-h-screen max-w-[1440px]">
         <div className="mx-6 h-full max-h-max flex-1">
           <Outlet />
         </div>
-        <div className="mx-6">
-          <Footer />
-        </div>
+      </div>
+      <div className="mx-auto max-w-[1440px] px-6">
+        <Footer />
       </div>
     </div>
   );

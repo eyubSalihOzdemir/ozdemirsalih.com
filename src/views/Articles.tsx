@@ -76,6 +76,7 @@ function Articles() {
                   {articles.map((article, index) => (
                     <Link to={`/articles/${article.id}`}>
                       <Card
+                        variant="regular"
                         key={index}
                         thumbnail={article.thumbnail}
                         title={article.title}

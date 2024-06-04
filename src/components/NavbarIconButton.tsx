@@ -7,18 +7,22 @@ interface Props {
   hoverItems?: ReactNode[];
 }
 
-function NavbarButton({ onClick, icon, hoverItems }: Props) {
+function NavbarIconButton({ onClick, icon, hoverItems }: Props) {
   const [isHovered, setIsHovered] = useState(false);
+  let timeoutId: NodeJS.Timeout;
 
   const handleButtonClick = () => {
     onClick();
   };
   const handleMouseEnter = () => {
+    clearTimeout(timeoutId);
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    timeoutId = setTimeout(() => {
+      setIsHovered(false);
+    }, 200);
   };
 
   return (
@@ -51,4 +55,4 @@ function NavbarButton({ onClick, icon, hoverItems }: Props) {
   );
 }
 
-export default NavbarButton;
+export default NavbarIconButton;

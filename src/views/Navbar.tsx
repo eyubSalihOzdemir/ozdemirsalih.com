@@ -226,7 +226,7 @@ function Navbar() {
           <Outlet />
         </div>
       </div>
-      <div className="mx-auto max-w-[1440px]">
+      <div className="mx-auto max-w-[1440px] px-6">
         <Footer />
       </div>
     </div>

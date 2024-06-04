@@ -7,7 +7,7 @@ interface Props {
   hoverItems?: ReactNode[];
 }
 
-function NavbarButton({ onClick, icon, hoverItems }: Props) {
+function NavbarIconButton({ onClick, icon, hoverItems }: Props) {
   const [isHovered, setIsHovered] = useState(false);
   let timeoutId: NodeJS.Timeout;
 
@@ -55,4 +55,4 @@ function NavbarButton({ onClick, icon, hoverItems }: Props) {
   );
 }
 
-export default NavbarButton;
+export default NavbarIconButton;

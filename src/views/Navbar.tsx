@@ -11,12 +11,12 @@ import {
 } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
 import { IconSun } from "@tabler/icons-react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.tsx";
 import Sidebar from "./Sidebar.tsx";
 import NavbarButton from "../components/NavbarButton.tsx";
-import IconButton from "../components/IconButton.tsx";
+import NavbarIconButton from "../components/NavbarIconButton.tsx";
 import { useTranslation } from "react-i18next";
 import FlagTR from "../components/FlagTR.tsx";
 import FlagEN from "../components/FlagEN.tsx";
@@ -65,6 +65,11 @@ function Navbar() {
     setActiveNavbarButton: setActiveSidebarButton,
   } = useStateContext();
   const navigate = useNavigate();
+  const { pathname } = useLocation(); // Get the current location
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top whenever the path changes
+  }, [pathname]);
 
   // setIsDarkMode(checkTheme());
 
@@ -175,14 +180,14 @@ function Navbar() {
         <div className="flex">
           {/* theme change button */}
           <div className="hidden">
-            <IconButton
+            <NavbarIconButton
               icon={isDarkMode ? <IconSun /> : <IconMoon />}
               // onClick={() => themeSwitch()}
               onClick={() => {}}
             />
           </div>
           {/* language change button */}
-          <IconButton
+          <NavbarIconButton
             icon={<IconWorld />}
             onClick={() => {}}
             hoverItems={[

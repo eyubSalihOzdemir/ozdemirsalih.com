@@ -156,18 +156,17 @@ function Navbar() {
               onClick={() => {}}
               isSelected={activeSidebarButton === "dev"}
               hoverItems={[
-                <button onClick={() => handleNavbarButton("shorts", "dev")}>
-                  <div className="flex gap-2">
-                    <IconNote className="size-5" />
-                    {t("navbar.submenuButtons.shorts")}
-                  </div>
-                </button>,
-                <button disabled onClick={() => {}}>
-                  <div className="flex gap-2 text-gray-500">
-                    <IconClipboardText className="size-5" />
-                    {t("navbar.submenuButtons.projects")}
-                  </div>
-                </button>,
+                <NavbarMenuItem
+                  icon={<IconNote className="size-5" />}
+                  text={t("navbar.submenuButtons.shorts")}
+                  onClick={() => handleNavbarButton("shorts", "dev")}
+                />,
+                <NavbarMenuItem
+                  icon={<IconClipboardText className="size-5" />}
+                  text={t("navbar.submenuButtons.projects")}
+                  onClick={() => {}}
+                  disabled={true}
+                />,
               ]}
             />
             <NavbarButton

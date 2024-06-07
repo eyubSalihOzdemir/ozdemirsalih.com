@@ -73,10 +73,9 @@ function Shorts() {
             <div className="grid animate-fade-down grid-cols-1 gap-4 pt-8 animate-delay-200 animate-duration-500 animate-ease-out sm:grid-cols-2 lg:grid-cols-3">
               {shorts.length ? (
                 <>
-                  {shorts.map((short, index) => (
-                    <Link to={`/shorts/${short.id}`}>
+                  {shorts.map((short) => (
+                    <Link key={short.id} to={`/shorts/${short.id}`}>
                       <CompactCard
-                        key={index}
                         title={short.title}
                         footer={format(
                           parseISO(short.createdAt),

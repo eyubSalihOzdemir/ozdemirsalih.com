@@ -103,7 +103,7 @@ function Short() {
               {/* <span className="animate-fade-down pt-4 font-light animate-delay-200 animate-duration-500 animate-ease-out">
                 {format(parseISO(short.createdAt), "dd MMMM yyyy")}
               </span> */}
-              <div className="animate-fade-down pt-8 font-light animate-delay-300 animate-duration-500 animate-ease-out">
+              <div className="max-w-[90%] animate-fade-down pt-8 font-light animate-delay-300 animate-duration-500 animate-ease-out">
                 <Markdown
                   className="markdown"
                   children={markdownContent}

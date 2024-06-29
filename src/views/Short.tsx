@@ -180,6 +180,13 @@ function Short() {
                         </a>
                       );
                     },
+                    img: (props) => {
+                      return (
+                        <img className="rounded-lg" src={props.src}>
+                          {props.children}
+                        </img>
+                      );
+                    },
                   }}
                 />
               </div>
